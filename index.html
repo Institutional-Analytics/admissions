@@ -313,19 +313,19 @@
     
     <div class="container">
         <div class="current-date-notice">
-            📅 Data current as of July 15, 2025 - Day 31 of 139 (22.3% through admission cycle)
+            📅 Data current as of July 16, 2025 - Day 32 of 139 (23.0% through admission cycle)
         </div>
         
         <div class="cycle-progress">
             <h3 style="margin-bottom: 1rem;">Admission Cycle Progress</h3>
             <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 22.3%;">
-                    Day 31
+                <div class="progress-bar" style="width: 23.0%;">
+                    Day 32
                 </div>
             </div>
             <div class="cycle-info">
                 <span>Start: June 15</span>
-                <span>Current: July 15 (Day 31)</span>
+                <span>Current: July 16 (Day 32)</span>
                 <span>End: October 31 (Day 139)</span>
             </div>
         </div>
@@ -355,7 +355,7 @@
                 
                 <label for="dateFilter">View Data As Of:</label>
                 <select id="dateFilter">
-                    <option value="current">July 15 (Comparable)</option>
+                    <option value="current">July 16 (Comparable)</option>
                     <option value="full">Full Year (Oct 31)</option>
                 </select>
             </div>
@@ -364,7 +364,7 @@
         <div class="stats-grid">
             <div class="stat-card primary">
                 <h3>Total Applicants</h3>
-                <div class="value" id="totalApplicants">347</div>
+                <div class="value" id="totalApplicants">356</div>
                 <div class="change" id="applicantsChange"></div>
                 <div class="note" id="applicantsNote"></div>
             </div>
@@ -385,9 +385,9 @@
             
             <div class="stat-card danger">
                 <h3>Today's Applications</h3>
-                <div class="value" id="todayApplicants">16</div>
+                <div class="value" id="todayApplicants">25</div>
                 <div class="change" id="todayChange"></div>
-                <div class="note" id="todayNote">July 15 Daily Total</div>
+                <div class="note" id="todayNote">July 16 Daily Total</div>
             </div>
         </div>
         
@@ -411,7 +411,7 @@
         </div>
         
         <div class="chart-section">
-            <h2>Daily Applications Comparison (July 15)</h2>
+            <h2>Daily Applications Comparison (July 16)</h2>
             <div class="chart-grid">
                 <div class="chart-container" style="height: 300px;">
                     <canvas id="dailyComparisonChart"></canvas>
@@ -423,7 +423,7 @@
         </div>
         
         <div class="campus-comparison">
-            <h2>Campus Details (As of July 15 - Day 31)</h2>
+            <h2>Campus Details (As of July 16 - Day 32)</h2>
             <table class="campus-table" id="campusTable">
                 <thead>
                     <tr>
@@ -447,99 +447,351 @@
             startDate: 'June 15',
             endDate: 'October 31',
             totalDays: 139,
-            currentDay: 31,
-            currentDate: 'July 15'
+            currentDay: 32,
+            currentDate: 'July 16'
         };
         
-        // Exact data from Excel files - July 15 comparable data
+        // Updated data from CSV - Day 31 comparable data (July 15 equivalent)
         const july15Data = {
             "Akkar": {
-                "2019": { accApplicants: 5, accRegistered: 3, dailyApplicants: 0 },
-                "2023": { accApplicants: 6, accRegistered: 0, dailyApplicants: 0 },
-                "2024": { accApplicants: 4, accRegistered: 2, dailyApplicants: 0 },
-                "2025": { accApplicants: 5, accRegistered: 1, dailyApplicants: 0 }
-            },
-            "Tyre": {
-                "2019": { accApplicants: 13, accRegistered: 7, dailyApplicants: 2 },
-                "2023": { accApplicants: 44, accRegistered: 24, dailyApplicants: 2 },
-                "2024": { accApplicants: 17, accRegistered: 7, dailyApplicants: 0 },
-                "2025": { accApplicants: 15, accRegistered: 0, dailyApplicants: 2 }
-            },
-            "Nabatieh": {
-                "2019": { accApplicants: 19, accRegistered: 8, dailyApplicants: 2 },
-                "2023": { accApplicants: 51, accRegistered: 22, dailyApplicants: 1 },
-                "2024": { accApplicants: 23, accRegistered: 9, dailyApplicants: 2 },
-                "2025": { accApplicants: 15, accRegistered: 0, dailyApplicants: 0 }
-            },
-            "Mount Lebanon": {
-                "2019": { accApplicants: 48, accRegistered: 25, dailyApplicants: 1 },
-                "2023": { accApplicants: 68, accRegistered: 47, dailyApplicants: 0 },
-                "2024": { accApplicants: 41, accRegistered: 35, dailyApplicants: 1 },
-                "2025": { accApplicants: 25, accRegistered: 0, dailyApplicants: 2 }
-            },
-            "Tripoli": {
-                "2019": { accApplicants: 37, accRegistered: 0, dailyApplicants: 1 },
-                "2023": { accApplicants: 91, accRegistered: 15, dailyApplicants: 0 },
-                "2024": { accApplicants: 22, accRegistered: 11, dailyApplicants: 0 },
-                "2025": { accApplicants: 10, accRegistered: 0, dailyApplicants: 0 }
-            },
-            "Saida": {
-                "2019": { accApplicants: 60, accRegistered: 4, dailyApplicants: 2 },
-                "2023": { accApplicants: 73, accRegistered: 30, dailyApplicants: 0 },
-                "2024": { accApplicants: 46, accRegistered: 33, dailyApplicants: 2 },
-                "2025": { accApplicants: 38, accRegistered: 0, dailyApplicants: 1 }
+                "2019": {
+                    "accApplicants": 6,
+                    "accRegistered": 3,
+                    "dailyApplicants": 1
+                },
+                "2023": {
+                    "accApplicants": 6,
+                    "accRegistered": 0,
+                    "dailyApplicants": 0
+                },
+                "2024": {
+                    "accApplicants": 5,
+                    "accRegistered": 3,
+                    "dailyApplicants": 1
+                },
+                "2025": {
+                    "accApplicants": 5,
+                    "accRegistered": 1,
+                    "dailyApplicants": 0
+                }
             },
             "Beirut": {
-                "2019": { accApplicants: 730, accRegistered: 378, dailyApplicants: 115 },
-                "2023": { accApplicants: 451, accRegistered: 262, dailyApplicants: 15 },
-                "2024": { accApplicants: 347, accRegistered: 263, dailyApplicants: 67 },
-                "2025": { accApplicants: 239, accRegistered: 1, dailyApplicants: 11 }
+                "2019": {
+                    "accApplicants": 722,
+                    "accRegistered": 384,
+                    "dailyApplicants": 100
+                },
+                "2023": {
+                    "accApplicants": 451,
+                    "accRegistered": 259,
+                    "dailyApplicants": 6
+                },
+                "2024": {
+                    "accApplicants": 343,
+                    "accRegistered": 248,
+                    "dailyApplicants": 44
+                },
+                "2025": {
+                    "accApplicants": 243,
+                    "accRegistered": 1,
+                    "dailyApplicants": 15
+                }
+            },
+            "Mount Lebanon": {
+                "2019": {
+                    "accApplicants": 54,
+                    "accRegistered": 28,
+                    "dailyApplicants": 10
+                },
+                "2023": {
+                    "accApplicants": 68,
+                    "accRegistered": 46,
+                    "dailyApplicants": 1
+                },
+                "2024": {
+                    "accApplicants": 43,
+                    "accRegistered": 37,
+                    "dailyApplicants": 4
+                },
+                "2025": {
+                    "accApplicants": 26,
+                    "accRegistered": 0,
+                    "dailyApplicants": 3
+                }
+            },
+            "Nabatieh": {
+                "2019": {
+                    "accApplicants": 18,
+                    "accRegistered": 4,
+                    "dailyApplicants": 2
+                },
+                "2023": {
+                    "accApplicants": 54,
+                    "accRegistered": 25,
+                    "dailyApplicants": 7
+                },
+                "2024": {
+                    "accApplicants": 27,
+                    "accRegistered": 12,
+                    "dailyApplicants": 5
+                },
+                "2025": {
+                    "accApplicants": 16,
+                    "accRegistered": 0,
+                    "dailyApplicants": 1
+                }
+            },
+            "Saida": {
+                "2019": {
+                    "accApplicants": 66,
+                    "accRegistered": 4,
+                    "dailyApplicants": 8
+                },
+                "2023": {
+                    "accApplicants": 77,
+                    "accRegistered": 32,
+                    "dailyApplicants": 4
+                },
+                "2024": {
+                    "accApplicants": 54,
+                    "accRegistered": 40,
+                    "dailyApplicants": 9
+                },
+                "2025": {
+                    "accApplicants": 40,
+                    "accRegistered": 0,
+                    "dailyApplicants": 3
+                }
+            },
+            "Tripoli": {
+                "2019": {
+                    "accApplicants": 37,
+                    "accRegistered": 0,
+                    "dailyApplicants": 2
+                },
+                "2023": {
+                    "accApplicants": 90,
+                    "accRegistered": 15,
+                    "dailyApplicants": 0
+                },
+                "2024": {
+                    "accApplicants": 29,
+                    "accRegistered": 13,
+                    "dailyApplicants": 7
+                },
+                "2025": {
+                    "accApplicants": 11,
+                    "accRegistered": 0,
+                    "dailyApplicants": 1
+                }
+            },
+            "Tyre": {
+                "2019": {
+                    "accApplicants": 9,
+                    "accRegistered": 2,
+                    "dailyApplicants": 0
+                },
+                "2023": {
+                    "accApplicants": 42,
+                    "accRegistered": 23,
+                    "dailyApplicants": 0
+                },
+                "2024": {
+                    "accApplicants": 19,
+                    "accRegistered": 7,
+                    "dailyApplicants": 2
+                },
+                "2025": {
+                    "accApplicants": 15,
+                    "accRegistered": 0,
+                    "dailyApplicants": 2
+                }
             }
         };
         
-        // Full year data (October 31) - except 2025 which uses current date
+        // Updated full year data (Oct 31 for complete years, current for 2025)
         const fullYearData = {
             "Akkar": {
-                "2019": { accApplicants: 621, accRegistered: 559, droppedAll: 0, hasID: 0 },
-                "2023": { accApplicants: 443, accRegistered: 325, droppedAll: 0, hasID: 0 },
-                "2024": { accApplicants: 383, accRegistered: 317, droppedAll: 0, hasID: 0 },
-                "2025": { accApplicants: 5, accRegistered: 1, droppedAll: 0, hasID: 0 } // Only up to July 15
-            },
-            "Tyre": {
-                "2019": { accApplicants: 965, accRegistered: 849, droppedAll: 0, hasID: 0 },
-                "2023": { accApplicants: 1028, accRegistered: 834, droppedAll: 0, hasID: 0 },
-                "2024": { accApplicants: 870, accRegistered: 605, droppedAll: 0, hasID: 0 },
-                "2025": { accApplicants: 15, accRegistered: 0, droppedAll: 0, hasID: 0 }
-            },
-            "Nabatieh": {
-                "2019": { accApplicants: 695, accRegistered: 593, droppedAll: 0, hasID: 0 },
-                "2023": { accApplicants: 841, accRegistered: 621, droppedAll: 0, hasID: 0 },
-                "2024": { accApplicants: 522, accRegistered: 338, droppedAll: 0, hasID: 0 },
-                "2025": { accApplicants: 15, accRegistered: 0, droppedAll: 0, hasID: 0 }
-            },
-            "Mount Lebanon": {
-                "2019": { accApplicants: 493, accRegistered: 359, droppedAll: 0, hasID: 0 },
-                "2023": { accApplicants: 398, accRegistered: 294, droppedAll: 0, hasID: 0 },
-                "2024": { accApplicants: 327, accRegistered: 258, droppedAll: 0, hasID: 0 },
-                "2025": { accApplicants: 25, accRegistered: 0, droppedAll: 0, hasID: 0 }
-            },
-            "Tripoli": {
-                "2019": { accApplicants: 1279, accRegistered: 1021, droppedAll: 0, hasID: 0 },
-                "2023": { accApplicants: 1490, accRegistered: 1003, droppedAll: 0, hasID: 0 },
-                "2024": { accApplicants: 1050, accRegistered: 762, droppedAll: 0, hasID: 0 },
-                "2025": { accApplicants: 10, accRegistered: 0, droppedAll: 0, hasID: 0 }
-            },
-            "Saida": {
-                "2019": { accApplicants: 1287, accRegistered: 964, droppedAll: 0, hasID: 0 },
-                "2023": { accApplicants: 1165, accRegistered: 885, droppedAll: 0, hasID: 0 },
-                "2024": { accApplicants: 1003, accRegistered: 759, droppedAll: 0, hasID: 0 },
-                "2025": { accApplicants: 38, accRegistered: 0, droppedAll: 0, hasID: 0 }
+                "2019": {
+                    "accApplicants": 621,
+                    "accRegistered": 559,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2023": {
+                    "accApplicants": 443,
+                    "accRegistered": 325,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2024": {
+                    "accApplicants": 383,
+                    "accRegistered": 317,
+                    "droppedAll": 0,
+                    "hasID": 2
+                },
+                "2025": {
+                    "accApplicants": 7,
+                    "accRegistered": 1,
+                    "droppedAll": 0,
+                    "hasID": 1
+                }
             },
             "Beirut": {
-                "2019": { accApplicants: 4260, accRegistered: 2947, droppedAll: 0, hasID: 0 },
-                "2023": { accApplicants: 3413, accRegistered: 2368, droppedAll: 0, hasID: 0 },
-                "2024": { accApplicants: 2740, accRegistered: 1805, droppedAll: 0, hasID: 0 },
-                "2025": { accApplicants: 239, accRegistered: 1, droppedAll: 0, hasID: 0 }
+                "2019": {
+                    "accApplicants": 4260,
+                    "accRegistered": 2947,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2023": {
+                    "accApplicants": 3413,
+                    "accRegistered": 2368,
+                    "droppedAll": 0,
+                    "hasID": 4
+                },
+                "2024": {
+                    "accApplicants": 2740,
+                    "accRegistered": 1805,
+                    "droppedAll": 0,
+                    "hasID": 5
+                },
+                "2025": {
+                    "accApplicants": 275,
+                    "accRegistered": 1,
+                    "droppedAll": 0,
+                    "hasID": 0
+                }
+            },
+            "Mount Lebanon": {
+                "2019": {
+                    "accApplicants": 493,
+                    "accRegistered": 359,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2023": {
+                    "accApplicants": 398,
+                    "accRegistered": 294,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2024": {
+                    "accApplicants": 327,
+                    "accRegistered": 258,
+                    "droppedAll": 0,
+                    "hasID": 1
+                },
+                "2025": {
+                    "accApplicants": 27,
+                    "accRegistered": 0,
+                    "droppedAll": 0,
+                    "hasID": 0
+                }
+            },
+            "Nabatieh": {
+                "2019": {
+                    "accApplicants": 695,
+                    "accRegistered": 593,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2023": {
+                    "accApplicants": 841,
+                    "accRegistered": 621,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2024": {
+                    "accApplicants": 522,
+                    "accRegistered": 338,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2025": {
+                    "accApplicants": 17,
+                    "accRegistered": 0,
+                    "droppedAll": 0,
+                    "hasID": 0
+                }
+            },
+            "Saida": {
+                "2019": {
+                    "accApplicants": 1287,
+                    "accRegistered": 964,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2023": {
+                    "accApplicants": 1165,
+                    "accRegistered": 885,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2024": {
+                    "accApplicants": 1003,
+                    "accRegistered": 759,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2025": {
+                    "accApplicants": 40,
+                    "accRegistered": 0,
+                    "droppedAll": 0,
+                    "hasID": 0
+                }
+            },
+            "Tripoli": {
+                "2019": {
+                    "accApplicants": 1279,
+                    "accRegistered": 1021,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2023": {
+                    "accApplicants": 1490,
+                    "accRegistered": 1003,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2024": {
+                    "accApplicants": 1050,
+                    "accRegistered": 762,
+                    "droppedAll": 0,
+                    "hasID": 1
+                },
+                "2025": {
+                    "accApplicants": 12,
+                    "accRegistered": 0,
+                    "droppedAll": 0,
+                    "hasID": 0
+                }
+            },
+            "Tyre": {
+                "2019": {
+                    "accApplicants": 965,
+                    "accRegistered": 849,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2023": {
+                    "accApplicants": 1028,
+                    "accRegistered": 834,
+                    "droppedAll": 0,
+                    "hasID": 0
+                },
+                "2024": {
+                    "accApplicants": 870,
+                    "accRegistered": 605,
+                    "droppedAll": 0,
+                    "hasID": 1
+                },
+                "2025": {
+                    "accApplicants": 20,
+                    "accRegistered": 0,
+                    "droppedAll": 0,
+                    "hasID": 0
+                }
             }
         };
         
@@ -680,7 +932,7 @@
                         ...chartOptions.plugins,
                         title: {
                             display: true,
-                            text: 'Daily Applications on July 15 (Day 31) - Year Comparison',
+                            text: 'Daily Applications on July 16 (Day 32) - Year Comparison',
                             font: {
                                 size: 16,
                                 weight: '600'
@@ -705,7 +957,7 @@
                         ...chartOptions.plugins,
                         title: {
                             display: true,
-                            text: 'Daily Applications by Campus - July 15, 2025',
+                            text: 'Daily Applications by Campus - July 16, 2025',
                             font: {
                                 size: 16,
                                 weight: '600'
@@ -767,11 +1019,11 @@
             document.getElementById('registrationRate').textContent = regRate + '%';
             
             // Update notes for context
-            const dateNote = currentDataSet === july15Data ? 'As of July 15' : 'Full year (Oct 31)';
+            const dateNote = currentDataSet === july15Data ? 'As of July 16' : 'Full year (Oct 31)';
             document.getElementById('applicantsNote').textContent = dateNote;
             document.getElementById('registeredNote').textContent = dateNote;
             document.getElementById('rateNote').textContent = year === '2025' && currentDataSet === july15Data ? 'Early in cycle' : '';
-            document.getElementById('todayNote').textContent = currentDataSet === july15Data ? 'July 15 Daily Total' : 'N/A';
+            document.getElementById('todayNote').textContent = currentDataSet === july15Data ? 'July 16 Daily Total' : 'N/A';
             
             // Calculate changes vs previous year
             const prevYear = year === '2025' ? '2024' : year === '2024' ? '2023' : year === '2023' ? '2019' : null;
@@ -933,7 +1185,7 @@
                 dailyComparisonChart.data = {
                     labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
                     datasets: [{
-                        label: 'Daily Applications on July 15',
+                        label: 'Daily Applications on July 16',
                         data: dailyTotals,
                         backgroundColor: [
                             'rgba(155, 89, 182, 0.8)',
@@ -1040,7 +1292,7 @@
                 dailyComparisonChart.data = {
                     labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
                     datasets: [{
-                        label: 'Daily Applications on July 15',
+                        label: 'Daily Applications on July 16',
                         data: dailyTotals,
                         backgroundColor: [
                             'rgba(155, 89, 182, 0.8)',
