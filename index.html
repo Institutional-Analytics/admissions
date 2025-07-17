@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Admissions Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .dashboard-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .current-date-notice {
+            background: #f39c12;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .cycle-progress {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .progress-bar-container {
+            background: #ecf0f1;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin: 1rem 0;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
+            height: 100%;
+            border-radius: 15px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .cycle-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .filters-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .filter-group select {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        .filter-group select:hover {
+            border-color: #3498db;
+        }
+        
+        .filter-group select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card.primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+        
+        .stat-card.success {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+        }
+        
+        .stat-card.warning {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+        }
+        
+        .stat-card.danger {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+        
+        .stat-card h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .stat-card .value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .change {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .stat-card .note {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+        
+        .chart-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .chart-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+        }
+        
+        .campus-comparison {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+        
+        .campus-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            table-layout: auto;
+        }
+        
+        .campus-table th {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+            white-space: nowrap;
+        }
+        
+        .campus-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .campus-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .stat-card .trend-up {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .stat-card .trend-down {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .trend-up {
+            color: #27ae60;
+        }
+        
+        .trend-down {
+            color: #e74c3c;
+        }
+        
+        .campus-table th:last-child {
+            background: #e8f4f8;
+            font-weight: 700;
+        }
+        
+        .campus-table td:last-child {
+            background: #f8fcfd;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .campus-table {
+                font-size: 0.9rem;
+            }
+            
+            .campus-table td, .campus-table th {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <div class="container">
+            <h1>University Admissions Dashboard</h1>
+            <p>Real-time tracking of admissions data across all campuses</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="current-date-notice">
+            📅 Data current as of July 15, 2025 - Day 31 of 139 (22.3% through admission cycle)
+        </div>
+        
+        <div class="cycle-progress">
+            <h3 style="margin-bottom: 1rem;">Admission Cycle Progress</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 22.3%;">
+                    Day 31
+                </div>
+            </div>
+            <div class="cycle-info">
+                <span>Start: June 15</span>
+                <span>Current: July 15 (Day 31)</span>
+                <span>End: October 31 (Day 139)</span>
+            </div>
+        </div>
+        
+        <div class="filters-section">
+            <div class="filter-group">
+                <label for="campusFilter">Campus:</label>
+                <select id="campusFilter">
+                    <option value="all">All Campuses Combined</option>
+                    <option value="Akkar">Akkar</option>
+                    <option value="Beirut">Beirut</option>
+                    <option value="Mount Lebanon">Mount Lebanon</option>
+                    <option value="Nabatieh">Nabatieh</option>
+                    <option value="Saida">Saida</option>
+                    <option value="Tripoli">Tripoli</option>
+                    <option value="Tyre">Tyre</option>
+                </select>
+                
+                <label for="yearFilter">Year:</label>
+                <select id="yearFilter">
+                    <option value="2025">Fall 2025-2026 (Current)</option>
+                    <option value="2024">Fall 2024-2025</option>
+                    <option value="2023">Fall 2023-2024</option>
+                    <option value="2019">Fall 2019-2020</option>
+                    <option value="compare">Compare All Years</option>
+                </select>
+                
+                <label for="dateFilter">View Data As Of:</label>
+                <select id="dateFilter">
+                    <option value="current">July 15 (Comparable)</option>
+                    <option value="full">Full Year (Oct 31)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card primary">
+                <h3>Total Applicants</h3>
+                <div class="value" id="totalApplicants">347</div>
+                <div class="change" id="applicantsChange"></div>
+                <div class="note" id="applicantsNote"></div>
+            </div>
+            
+            <div class="stat-card success">
+                <h3>Total Registered</h3>
+                <div class="value" id="totalRegistered">2</div>
+                <div class="change" id="registeredChange"></div>
+                <div class="note" id="registeredNote"></div>
+            </div>
+            
+            <div class="stat-card warning">
+                <h3>Registration Rate</h3>
+                <div class="value" id="registrationRate">0.6%</div>
+                <div class="change" id="rateChange"></div>
+                <div class="note" id="rateNote"></div>
+            </div>
+            
+            <div class="stat-card danger">
+                <h3>Today's Applications</h3>
+                <div class="value" id="todayApplicants">16</div>
+                <div class="change" id="todayChange"></div>
+                <div class="note" id="todayNote">July 15 Daily Total</div>
+            </div>
+        </div>
+        
+        <div class="chart-section">
+            <h2>Admissions Trends</h2>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <canvas id="applicantsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="registrationChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart-section">
+            <h2>Campus Performance</h2>
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="campusComparisonChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="chart-section">
+            <h2>Daily Applications Comparison (July 15)</h2>
+            <div class="chart-grid">
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="dailyComparisonChart"></canvas>
+                </div>
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="dailyCampusChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="campus-comparison">
+            <h2>Campus Details (As of July 15 - Day 31)</h2>
+            <table class="campus-table" id="campusTable">
+                <thead>
+                    <tr>
+                        <th>Campus</th>
+                        <th>Applicants</th>
+                        <th>Registered</th>
+                        <th>Registration Rate</th>
+                        <th>vs Last Year</th>
+                        <th>vs Pre-COVID (2019)</th>
+                    </tr>
+                </thead>
+                <tbody id="campusTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        // Admission cycle information
+        const cycleInfo = {
+            startDate: 'June 15',
+            endDate: 'October 31',
+            totalDays: 139,
+            currentDay: 31,
+            currentDate: 'July 15'
+        };
+        
+        // Exact data from Excel files - July 15 comparable data
+        const july15Data = {
+            "Akkar": {
+                "2019": { accApplicants: 5, accRegistered: 3, dailyApplicants: 0 },
+                "2023": { accApplicants: 6, accRegistered: 0, dailyApplicants: 0 },
+                "2024": { accApplicants: 4, accRegistered: 2, dailyApplicants: 0 },
+                "2025": { accApplicants: 5, accRegistered: 1, dailyApplicants: 0 }
+            },
+            "Tyre": {
+                "2019": { accApplicants: 13, accRegistered: 7, dailyApplicants: 2 },
+                "2023": { accApplicants: 44, accRegistered: 24, dailyApplicants: 2 },
+                "2024": { accApplicants: 17, accRegistered: 7, dailyApplicants: 0 },
+                "2025": { accApplicants: 15, accRegistered: 0, dailyApplicants: 2 }
+            },
+            "Nabatieh": {
+                "2019": { accApplicants: 19, accRegistered: 8, dailyApplicants: 2 },
+                "2023": { accApplicants: 51, accRegistered: 22, dailyApplicants: 1 },
+                "2024": { accApplicants: 23, accRegistered: 9, dailyApplicants: 2 },
+                "2025": { accApplicants: 15, accRegistered: 0, dailyApplicants: 0 }
+            },
+            "Mount Lebanon": {
+                "2019": { accApplicants: 48, accRegistered: 25, dailyApplicants: 1 },
+                "2023": { accApplicants: 68, accRegistered: 47, dailyApplicants: 0 },
+                "2024": { accApplicants: 41, accRegistered: 35, dailyApplicants: 1 },
+                "2025": { accApplicants: 25, accRegistered: 0, dailyApplicants: 2 }
+            },
+            "Tripoli": {
+                "2019": { accApplicants: 37, accRegistered: 0, dailyApplicants: 1 },
+                "2023": { accApplicants: 91, accRegistered: 15, dailyApplicants: 0 },
+                "2024": { accApplicants: 22, accRegistered: 11, dailyApplicants: 0 },
+                "2025": { accApplicants: 10, accRegistered: 0, dailyApplicants: 0 }
+            },
+            "Saida": {
+                "2019": { accApplicants: 60, accRegistered: 4, dailyApplicants: 2 },
+                "2023": { accApplicants: 73, accRegistered: 30, dailyApplicants: 0 },
+                "2024": { accApplicants: 46, accRegistered: 33, dailyApplicants: 2 },
+                "2025": { accApplicants: 38, accRegistered: 0, dailyApplicants: 1 }
+            },
+            "Beirut": {
+                "2019": { accApplicants: 730, accRegistered: 378, dailyApplicants: 115 },
+                "2023": { accApplicants: 451, accRegistered: 262, dailyApplicants: 15 },
+                "2024": { accApplicants: 347, accRegistered: 263, dailyApplicants: 67 },
+                "2025": { accApplicants: 239, accRegistered: 1, dailyApplicants: 11 }
+            }
+        };
+        
+        // Full year data (October 31) - except 2025 which uses current date
+        const fullYearData = {
+            "Akkar": {
+                "2019": { accApplicants: 621, accRegistered: 559, droppedAll: 0, hasID: 0 },
+                "2023": { accApplicants: 443, accRegistered: 325, droppedAll: 0, hasID: 0 },
+                "2024": { accApplicants: 383, accRegistered: 317, droppedAll: 0, hasID: 0 },
+                "2025": { accApplicants: 5, accRegistered: 1, droppedAll: 0, hasID: 0 } // Only up to July 15
+            },
+            "Tyre": {
+                "2019": { accApplicants: 965, accRegistered: 849, droppedAll: 0, hasID: 0 },
+                "2023": { accApplicants: 1028, accRegistered: 834, droppedAll: 0, hasID: 0 },
+                "2024": { accApplicants: 870, accRegistered: 605, droppedAll: 0, hasID: 0 },
+                "2025": { accApplicants: 15, accRegistered: 0, droppedAll: 0, hasID: 0 }
+            },
+            "Nabatieh": {
+                "2019": { accApplicants: 695, accRegistered: 593, droppedAll: 0, hasID: 0 },
+                "2023": { accApplicants: 841, accRegistered: 621, droppedAll: 0, hasID: 0 },
+                "2024": { accApplicants: 522, accRegistered: 338, droppedAll: 0, hasID: 0 },
+                "2025": { accApplicants: 15, accRegistered: 0, droppedAll: 0, hasID: 0 }
+            },
+            "Mount Lebanon": {
+                "2019": { accApplicants: 493, accRegistered: 359, droppedAll: 0, hasID: 0 },
+                "2023": { accApplicants: 398, accRegistered: 294, droppedAll: 0, hasID: 0 },
+                "2024": { accApplicants: 327, accRegistered: 258, droppedAll: 0, hasID: 0 },
+                "2025": { accApplicants: 25, accRegistered: 0, droppedAll: 0, hasID: 0 }
+            },
+            "Tripoli": {
+                "2019": { accApplicants: 1279, accRegistered: 1021, droppedAll: 0, hasID: 0 },
+                "2023": { accApplicants: 1490, accRegistered: 1003, droppedAll: 0, hasID: 0 },
+                "2024": { accApplicants: 1050, accRegistered: 762, droppedAll: 0, hasID: 0 },
+                "2025": { accApplicants: 10, accRegistered: 0, droppedAll: 0, hasID: 0 }
+            },
+            "Saida": {
+                "2019": { accApplicants: 1287, accRegistered: 964, droppedAll: 0, hasID: 0 },
+                "2023": { accApplicants: 1165, accRegistered: 885, droppedAll: 0, hasID: 0 },
+                "2024": { accApplicants: 1003, accRegistered: 759, droppedAll: 0, hasID: 0 },
+                "2025": { accApplicants: 38, accRegistered: 0, droppedAll: 0, hasID: 0 }
+            },
+            "Beirut": {
+                "2019": { accApplicants: 4260, accRegistered: 2947, droppedAll: 0, hasID: 0 },
+                "2023": { accApplicants: 3413, accRegistered: 2368, droppedAll: 0, hasID: 0 },
+                "2024": { accApplicants: 2740, accRegistered: 1805, droppedAll: 0, hasID: 0 },
+                "2025": { accApplicants: 239, accRegistered: 1, droppedAll: 0, hasID: 0 }
+            }
+        };
+        
+        // Chart instances
+        let applicantsChart, registrationChart, campusComparisonChart, dailyComparisonChart, dailyCampusChart;
+        let currentDataSet = july15Data; // Default to comparable data
+        
+        // Initialize charts
+        function initCharts() {
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 12,
+                                weight: '600'
+                            },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            drawBorder: false,
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            };
+            
+            // Applicants trend chart
+            const applicantsCtx = document.getElementById('applicantsChart').getContext('2d');
+            applicantsChart = new Chart(applicantsCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    ...chartOptions,
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Year-over-Year Applicant Comparison',
+                            font: {
+                                size: 16,
+                                weight: '600'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Registration rate chart
+            const registrationCtx = document.getElementById('registrationChart').getContext('2d');
+            registrationChart = new Chart(registrationCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    ...chartOptions,
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Registration Rates by Year',
+                            font: {
+                                size: 16,
+                                weight: '600'
+                            }
+                        }
+                    },
+                    scales: {
+                        ...chartOptions.scales,
+                        y: {
+                            ...chartOptions.scales.y,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            max: 100
+                        }
+                    }
+                }
+            });
+            
+            // Campus comparison chart
+            const campusCtx = document.getElementById('campusComparisonChart').getContext('2d');
+            campusComparisonChart = new Chart(campusCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    ...chartOptions,
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Campus Performance (Sorted by Total Applicants)',
+                            font: {
+                                size: 16,
+                                weight: '600'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Daily comparison chart
+            const dailyCtx = document.getElementById('dailyComparisonChart').getContext('2d');
+            dailyComparisonChart = new Chart(dailyCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    ...chartOptions,
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Daily Applications on July 15 (Day 31) - Year Comparison',
+                            font: {
+                                size: 16,
+                                weight: '600'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Daily campus chart
+            const dailyCampusCtx = document.getElementById('dailyCampusChart').getContext('2d');
+            dailyCampusChart = new Chart(dailyCampusCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    ...chartOptions,
+                    indexAxis: 'y',
+                    plugins: {
+                        ...chartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Daily Applications by Campus - July 15, 2025',
+                            font: {
+                                size: 16,
+                                weight: '600'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Update dashboard based on filters
+        function updateDashboard() {
+            const selectedCampus = document.getElementById('campusFilter').value;
+            const selectedYear = document.getElementById('yearFilter').value;
+            const selectedDateView = document.getElementById('dateFilter').value;
+            
+            // Update data source based on date view
+            currentDataSet = selectedDateView === 'current' ? july15Data : fullYearData;
+            
+            if (selectedYear === 'compare') {
+                showYearComparison(selectedCampus);
+            } else {
+                showYearData(selectedCampus, selectedYear);
+            }
+            
+            updateCampusTable(selectedYear);
+        }
+        
+        // Show data for a specific year
+        function showYearData(campus, year) {
+            let totalApplicants = 0;
+            let totalRegistered = 0;
+            let todayApplicants = 0;
+            
+            if (campus === 'all') {
+                // Aggregate all campuses
+                for (const campusName in currentDataSet) {
+                    if (currentDataSet[campusName][year]) {
+                        totalApplicants += currentDataSet[campusName][year].accApplicants || 0;
+                        totalRegistered += currentDataSet[campusName][year].accRegistered || 0;
+                        todayApplicants += currentDataSet[campusName][year].dailyApplicants || 0;
+                    }
+                }
+            } else {
+                // Single campus
+                if (currentDataSet[campus] && currentDataSet[campus][year]) {
+                    totalApplicants = currentDataSet[campus][year].accApplicants || 0;
+                    totalRegistered = currentDataSet[campus][year].accRegistered || 0;
+                    todayApplicants = currentDataSet[campus][year].dailyApplicants || 0;
+                }
+            }
+            
+            // Update stat cards
+            document.getElementById('totalApplicants').textContent = totalApplicants.toLocaleString();
+            document.getElementById('totalRegistered').textContent = totalRegistered.toLocaleString();
+            document.getElementById('todayApplicants').textContent = todayApplicants.toLocaleString();
+            
+            const regRate = totalApplicants > 0 ? ((totalRegistered / totalApplicants) * 100).toFixed(1) : 0;
+            document.getElementById('registrationRate').textContent = regRate + '%';
+            
+            // Update notes for context
+            const dateNote = currentDataSet === july15Data ? 'As of July 15' : 'Full year (Oct 31)';
+            document.getElementById('applicantsNote').textContent = dateNote;
+            document.getElementById('registeredNote').textContent = dateNote;
+            document.getElementById('rateNote').textContent = year === '2025' && currentDataSet === july15Data ? 'Early in cycle' : '';
+            document.getElementById('todayNote').textContent = currentDataSet === july15Data ? 'July 15 Daily Total' : 'N/A';
+            
+            // Calculate changes vs previous year
+            const prevYear = year === '2025' ? '2024' : year === '2024' ? '2023' : year === '2023' ? '2019' : null;
+            if (prevYear) {
+                let prevApplicants = 0;
+                let prevRegistered = 0;
+                let prevTodayApplicants = 0;
+                
+                if (campus === 'all') {
+                    for (const campusName in currentDataSet) {
+                        if (currentDataSet[campusName][prevYear]) {
+                            prevApplicants += currentDataSet[campusName][prevYear].accApplicants || 0;
+                            prevRegistered += currentDataSet[campusName][prevYear].accRegistered || 0;
+                            prevTodayApplicants += currentDataSet[campusName][prevYear].dailyApplicants || 0;
+                        }
+                    }
+                } else {
+                    if (currentDataSet[campus] && currentDataSet[campus][prevYear]) {
+                        prevApplicants = currentDataSet[campus][prevYear].accApplicants || 0;
+                        prevRegistered = currentDataSet[campus][prevYear].accRegistered || 0;
+                        prevTodayApplicants = currentDataSet[campus][prevYear].dailyApplicants || 0;
+                    }
+                }
+                
+                const appChange = prevApplicants > 0 ? ((totalApplicants - prevApplicants) / prevApplicants * 100).toFixed(1) : 0;
+                const regChange = prevRegistered > 0 ? ((totalRegistered - prevRegistered) / prevRegistered * 100).toFixed(1) : 0;
+                const todayChange = prevTodayApplicants > 0 ? ((todayApplicants - prevTodayApplicants) / prevTodayApplicants * 100).toFixed(1) : 
+                                    todayApplicants > 0 ? '∞' : '0';
+                
+                document.getElementById('applicantsChange').innerHTML = appChange >= 0 ? 
+                    `<span class="trend-up">▲ ${appChange}% vs ${prevYear}</span>` : 
+                    `<span class="trend-down">▼ ${Math.abs(appChange)}% vs ${prevYear}</span>`;
+                    
+                document.getElementById('registeredChange').innerHTML = regChange >= 0 ? 
+                    `<span class="trend-up">▲ ${regChange}% vs ${prevYear}</span>` : 
+                    `<span class="trend-down">▼ ${Math.abs(regChange)}% vs ${prevYear}</span>`;
+                
+                if (currentDataSet === july15Data) {
+                    if (todayChange === '∞') {
+                        document.getElementById('todayChange').innerHTML = `<span class="trend-up">▲ New applications vs ${prevYear}</span>`;
+                    } else {
+                        document.getElementById('todayChange').innerHTML = parseFloat(todayChange) >= 0 ? 
+                            `<span class="trend-up">▲ ${todayChange}% vs ${prevYear}</span>` : 
+                            `<span class="trend-down">▼ ${Math.abs(todayChange)}% vs ${prevYear}</span>`;
+                    }
+                } else {
+                    document.getElementById('todayChange').innerHTML = '';
+                }
+            }
+            
+            // Update charts
+            updateCharts(campus, year);
+        }
+        
+        // Show year comparison
+        function showYearComparison(campus) {
+            const years = ['2019', '2023', '2024', '2025'];
+            const applicantsData = [];
+            const registeredData = [];
+            const regRateData = [];
+            
+            years.forEach(year => {
+                let totalApplicants = 0;
+                let totalRegistered = 0;
+                
+                if (campus === 'all') {
+                    for (const campusName in currentDataSet) {
+                        if (currentDataSet[campusName][year]) {
+                            totalApplicants += currentDataSet[campusName][year].accApplicants || 0;
+                            totalRegistered += currentDataSet[campusName][year].accRegistered || 0;
+                        }
+                    }
+                } else {
+                    if (currentDataSet[campus] && currentDataSet[campus][year]) {
+                        totalApplicants = currentDataSet[campus][year].accApplicants || 0;
+                        totalRegistered = currentDataSet[campus][year].accRegistered || 0;
+                    }
+                }
+                
+                applicantsData.push(totalApplicants);
+                registeredData.push(totalRegistered);
+                regRateData.push(totalApplicants > 0 ? ((totalRegistered / totalApplicants) * 100).toFixed(1) : 0);
+            });
+            
+            // Update applicants trend chart
+            applicantsChart.data = {
+                labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
+                datasets: [
+                    {
+                        label: 'Total Applicants',
+                        data: applicantsData,
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    },
+                    {
+                        label: 'Total Registered',
+                        data: registeredData,
+                        borderColor: 'rgba(46, 204, 113, 1)',
+                        backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }
+                ]
+            };
+            applicantsChart.update();
+            
+            // Update registration rate chart
+            registrationChart.data = {
+                labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
+                datasets: [{
+                    label: 'Registration Rate %',
+                    data: regRateData,
+                    backgroundColor: 'rgba(243, 156, 18, 0.8)',
+                    borderColor: 'rgba(243, 156, 18, 1)',
+                    borderWidth: 2
+                }]
+            };
+            registrationChart.update();
+            
+            // Update comparison charts
+            campusComparisonChart.data = {
+                labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
+                datasets: [
+                    {
+                        label: 'Applicants',
+                        data: applicantsData,
+                        backgroundColor: 'rgba(52, 152, 219, 0.8)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Registered',
+                        data: registeredData,
+                        backgroundColor: 'rgba(46, 204, 113, 0.8)',
+                        borderColor: 'rgba(46, 204, 113, 1)',
+                        borderWidth: 2
+                    }
+                ]
+            };
+            campusComparisonChart.update();
+            
+            // Update daily comparison charts if viewing comparable data
+            if (currentDataSet === july15Data) {
+                // Year comparison of daily applicants
+                const dailyTotals = years.map(y => {
+                    let total = 0;
+                    for (const c in july15Data) {
+                        total += july15Data[c][y]?.dailyApplicants || 0;
+                    }
+                    return total;
+                });
+                
+                dailyComparisonChart.data = {
+                    labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
+                    datasets: [{
+                        label: 'Daily Applications on July 15',
+                        data: dailyTotals,
+                        backgroundColor: [
+                            'rgba(155, 89, 182, 0.8)',
+                            'rgba(52, 152, 219, 0.8)',
+                            'rgba(46, 204, 113, 0.8)',
+                            'rgba(243, 156, 18, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(155, 89, 182, 1)',
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(243, 156, 18, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                };
+                dailyComparisonChart.update();
+                
+                // Campus daily applicants for 2025
+                const dailyCampusData = [];
+                for (const c in july15Data) {
+                    if (july15Data[c]['2025']?.dailyApplicants > 0) {
+                        dailyCampusData.push({
+                            name: c,
+                            daily: july15Data[c]['2025'].dailyApplicants
+                        });
+                    }
+                }
+                
+                dailyCampusData.sort((a, b) => b.daily - a.daily);
+                
+                dailyCampusChart.data = {
+                    labels: dailyCampusData.map(d => d.name),
+                    datasets: [{
+                        label: 'Daily Applications',
+                        data: dailyCampusData.map(d => d.daily),
+                        backgroundColor: 'rgba(231, 76, 60, 0.8)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 2
+                    }]
+                };
+                dailyCampusChart.update();
+            }
+            
+            // Update current year stats
+            showYearData(campus, '2025');
+        }
+        
+        // Update charts
+        function updateCharts(campus, year) {
+            // Get campus data and sort by applicants for current year
+            const campusData = [];
+            for (const campusName in currentDataSet) {
+                if (currentDataSet[campusName][year]) {
+                    campusData.push({
+                        name: campusName,
+                        applicants: currentDataSet[campusName][year].accApplicants || 0,
+                        registered: currentDataSet[campusName][year].accRegistered || 0,
+                        dailyApplicants: currentDataSet[campusName][year].dailyApplicants || 0
+                    });
+                }
+            }
+            
+            // Sort by applicants (highest to lowest)
+            campusData.sort((a, b) => b.applicants - a.applicants);
+            
+            const sortedCampuses = campusData.map(d => d.name);
+            const campusApplicants = campusData.map(d => d.applicants);
+            const campusRegistered = campusData.map(d => d.registered);
+            
+            campusComparisonChart.data = {
+                labels: sortedCampuses,
+                datasets: [
+                    {
+                        label: 'Applicants',
+                        data: campusApplicants,
+                        backgroundColor: 'rgba(52, 152, 219, 0.8)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Registered',
+                        data: campusRegistered,
+                        backgroundColor: 'rgba(46, 204, 113, 0.8)',
+                        borderColor: 'rgba(46, 204, 113, 1)',
+                        borderWidth: 2
+                    }
+                ]
+            };
+            campusComparisonChart.update();
+            
+            // Update daily comparison charts
+            if (currentDataSet === july15Data) {
+                // Year comparison of daily applicants
+                const years = ['2019', '2023', '2024', '2025'];
+                const dailyTotals = years.map(y => {
+                    let total = 0;
+                    for (const c in july15Data) {
+                        total += july15Data[c][y]?.dailyApplicants || 0;
+                    }
+                    return total;
+                });
+                
+                dailyComparisonChart.data = {
+                    labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
+                    datasets: [{
+                        label: 'Daily Applications on July 15',
+                        data: dailyTotals,
+                        backgroundColor: [
+                            'rgba(155, 89, 182, 0.8)',
+                            'rgba(52, 152, 219, 0.8)',
+                            'rgba(46, 204, 113, 0.8)',
+                            'rgba(243, 156, 18, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(155, 89, 182, 1)',
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(243, 156, 18, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                };
+                dailyComparisonChart.update();
+                
+                // Campus daily applicants for current year
+                const dailyCampusData = campusData.filter(d => d.dailyApplicants > 0)
+                    .sort((a, b) => b.dailyApplicants - a.dailyApplicants);
+                
+                dailyCampusChart.data = {
+                    labels: dailyCampusData.map(d => d.name),
+                    datasets: [{
+                        label: 'Daily Applications',
+                        data: dailyCampusData.map(d => d.dailyApplicants),
+                        backgroundColor: 'rgba(231, 76, 60, 0.8)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 2
+                    }]
+                };
+                dailyCampusChart.update();
+            }
+            
+            // For single year view, show year comparison
+            if (year !== 'compare') {
+                const years = ['2019', '2023', '2024', '2025'];
+                const yearData = [];
+                const yearRegData = [];
+                
+                years.forEach(y => {
+                    if (campus === 'all') {
+                        let totalApp = 0;
+                        let totalReg = 0;
+                        for (const c in currentDataSet) {
+                            if (currentDataSet[c][y]) {
+                                totalApp += currentDataSet[c][y].accApplicants || 0;
+                                totalReg += currentDataSet[c][y].accRegistered || 0;
+                            }
+                        }
+                        yearData.push(totalApp);
+                        yearRegData.push(totalReg);
+                    } else if (currentDataSet[campus] && currentDataSet[campus][y]) {
+                        yearData.push(currentDataSet[campus][y].accApplicants || 0);
+                        yearRegData.push(currentDataSet[campus][y].accRegistered || 0);
+                    } else {
+                        yearData.push(0);
+                        yearRegData.push(0);
+                    }
+                });
+                
+                applicantsChart.data = {
+                    labels: years.map(y => `Fall ${y}`),
+                    datasets: [{
+                        label: campus === 'all' ? 'All Campuses' : campus,
+                        data: yearData,
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                };
+                applicantsChart.update();
+                
+                const regRates = yearData.map((app, i) => app > 0 ? ((yearRegData[i] / app) * 100).toFixed(1) : 0);
+                registrationChart.data = {
+                    labels: years.map(y => `Fall ${y}`),
+                    datasets: [{
+                        label: 'Registration Rate %',
+                        data: regRates,
+                        backgroundColor: 'rgba(243, 156, 18, 0.8)',
+                        borderColor: 'rgba(243, 156, 18, 1)',
+                        borderWidth: 2
+                    }]
+                };
+                registrationChart.update();
+            }
+        }
+        
+        // Update campus table
+        function updateCampusTable(year) {
+            const tbody = document.getElementById('campusTableBody');
+            tbody.innerHTML = '';
+            
+            const displayYear = year === 'compare' ? '2025' : year;
+            const prevYear = displayYear === '2025' ? '2024' : displayYear === '2024' ? '2023' : displayYear === '2023' ? '2019' : null;
+            
+            // Get campus data and sort by applicants
+            const campusData = [];
+            for (const campus in currentDataSet) {
+                if (currentDataSet[campus][displayYear]) {
+                    const current = currentDataSet[campus][displayYear];
+                    const prev = prevYear && currentDataSet[campus][prevYear] ? currentDataSet[campus][prevYear] : null;
+                    const preCovid = currentDataSet[campus]['2019'] || null;
+                    
+                    campusData.push({
+                        name: campus,
+                        current: current,
+                        prev: prev,
+                        preCovid: preCovid,
+                        applicants: current.accApplicants || 0
+                    });
+                }
+            }
+            
+            // Sort by applicants (highest to lowest)
+            campusData.sort((a, b) => b.applicants - a.applicants);
+            
+            // Create table rows
+            campusData.forEach(item => {
+                const current = item.current;
+                const prev = item.prev;
+                const preCovid = item.preCovid;
+                
+                const regRate = current.accApplicants > 0 ? ((current.accRegistered / current.accApplicants) * 100).toFixed(1) : 0;
+                
+                let changeText = '-';
+                if (prev) {
+                    const change = ((current.accApplicants - prev.accApplicants) / prev.accApplicants * 100).toFixed(1);
+                    changeText = change >= 0 ? 
+                        `<span class="trend-up">▲ ${change}%</span>` : 
+                        `<span class="trend-down">▼ ${Math.abs(change)}%</span>`;
+                }
+                
+                let covidChangeText = '-';
+                if (preCovid && preCovid.accApplicants > 0) {
+                    const covidChange = ((current.accApplicants - preCovid.accApplicants) / preCovid.accApplicants * 100).toFixed(1);
+                    covidChangeText = covidChange >= 0 ? 
+                        `<span class="trend-up">▲ ${covidChange}%</span>` : 
+                        `<span class="trend-down">▼ ${Math.abs(covidChange)}%</span>`;
+                }
+                
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${current.accApplicants.toLocaleString()}</td>
+                    <td>${current.accRegistered.toLocaleString()}</td>
+                    <td>${regRate}%</td>
+                    <td>${changeText}</td>
+                    <td>${covidChangeText}</td>
+                `;
+            });
+        }
+        
+        // Initialize dashboard
+        function init() {
+            initCharts();
+            updateDashboard();
+            
+            // Add event listeners
+            document.getElementById('campusFilter').addEventListener('change', updateDashboard);
+            document.getElementById('yearFilter').addEventListener('change', updateDashboard);
+            document.getElementById('dateFilter').addEventListener('change', updateDashboard);
+        }
+        
+        // Start the dashboard
+        init();
+    </script>
+</body>
+</html>
