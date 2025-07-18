@@ -313,19 +313,19 @@
     
     <div class="container">
         <div class="current-date-notice">
-            📅 Data current as of July 16, 2025 - Day 32 of 139 (23.0% through admission cycle)
+            📅 Data current as of July 17, 2025 - Day 33 of 139 (23.7% through admission cycle)
         </div>
         
         <div class="cycle-progress">
             <h3 style="margin-bottom: 1rem;">Admission Cycle Progress</h3>
             <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 23.0%;">
-                    Day 32
+                <div class="progress-bar" style="width: 23.7%;">
+                    Day 33
                 </div>
             </div>
             <div class="cycle-info">
                 <span>Start: June 15</span>
-                <span>Current: July 16 (Day 32)</span>
+                <span>Current: July 17 (Day 33)</span>
                 <span>End: October 31 (Day 139)</span>
             </div>
         </div>
@@ -355,7 +355,7 @@
                 
                 <label for="dateFilter">View Data As Of:</label>
                 <select id="dateFilter">
-                    <option value="current">July 16 (Comparable)</option>
+                    <option value="current">July 17 (Comparable)</option>
                     <option value="full">Full Year (Oct 31)</option>
                 </select>
             </div>
@@ -364,30 +364,30 @@
         <div class="stats-grid">
             <div class="stat-card primary">
                 <h3>Total Applicants</h3>
-                <div class="value" id="totalApplicants">356</div>
+                <div class="value" id="totalApplicants">442</div>
                 <div class="change" id="applicantsChange"></div>
                 <div class="note" id="applicantsNote"></div>
             </div>
             
             <div class="stat-card success">
                 <h3>Total Registered</h3>
-                <div class="value" id="totalRegistered">2</div>
+                <div class="value" id="totalRegistered">4</div>
                 <div class="change" id="registeredChange"></div>
                 <div class="note" id="registeredNote"></div>
             </div>
             
             <div class="stat-card warning">
                 <h3>Registration Rate</h3>
-                <div class="value" id="registrationRate">0.6%</div>
+                <div class="value" id="registrationRate">0.9%</div>
                 <div class="change" id="rateChange"></div>
                 <div class="note" id="rateNote"></div>
             </div>
             
             <div class="stat-card danger">
                 <h3>Today's Applications</h3>
-                <div class="value" id="todayApplicants">25</div>
+                <div class="value" id="todayApplicants">38</div>
                 <div class="change" id="todayChange"></div>
-                <div class="note" id="todayNote">July 16 Daily Total</div>
+                <div class="note" id="todayNote">July 17 Daily Total</div>
             </div>
         </div>
         
@@ -411,7 +411,7 @@
         </div>
         
         <div class="chart-section">
-            <h2>Daily Applications Comparison (July 16)</h2>
+            <h2>Daily Applications Comparison (July 17)</h2>
             <div class="chart-grid">
                 <div class="chart-container" style="height: 300px;">
                     <canvas id="dailyComparisonChart"></canvas>
@@ -423,7 +423,7 @@
         </div>
         
         <div class="campus-comparison">
-            <h2>Campus Details (As of July 16 - Day 32)</h2>
+            <h2>Campus Details (As of July 17 - Day 33)</h2>
             <table class="campus-table" id="campusTable">
                 <thead>
                     <tr>
@@ -447,164 +447,164 @@
             startDate: 'June 15',
             endDate: 'October 31',
             totalDays: 139,
-            currentDay: 32,
-            currentDate: 'July 16'
+            currentDay: 33,
+            currentDate: 'July 17'
         };
         
-        // Updated data from CSV - Day 31 comparable data (July 15 equivalent)
-        const july15Data = {
+        // Updated data from CSV - Day 33 comparable data (July 17)
+        const july17Data = {
             "Akkar": {
                 "2019": {
                     "accApplicants": 6,
                     "accRegistered": 3,
-                    "dailyApplicants": 1
+                    "dailyApplicants": 0
                 },
                 "2023": {
-                    "accApplicants": 6,
+                    "accApplicants": 7,
                     "accRegistered": 0,
-                    "dailyApplicants": 0
-                },
-                "2024": {
-                    "accApplicants": 5,
-                    "accRegistered": 3,
                     "dailyApplicants": 1
                 },
-                "2025": {
-                    "accApplicants": 5,
-                    "accRegistered": 1,
+                "2024": {
+                    "accApplicants": 6,
+                    "accRegistered": 3,
                     "dailyApplicants": 0
+                },
+                "2025": {
+                    "accApplicants": 8,
+                    "accRegistered": 2,
+                    "dailyApplicants": 1
                 }
             },
             "Beirut": {
                 "2019": {
-                    "accApplicants": 722,
-                    "accRegistered": 384,
-                    "dailyApplicants": 100
+                    "accApplicants": 862,
+                    "accRegistered": 482,
+                    "dailyApplicants": 54
                 },
                 "2023": {
-                    "accApplicants": 451,
-                    "accRegistered": 259,
-                    "dailyApplicants": 6
+                    "accApplicants": 515,
+                    "accRegistered": 305,
+                    "dailyApplicants": 58
                 },
                 "2024": {
-                    "accApplicants": 343,
-                    "accRegistered": 248,
-                    "dailyApplicants": 44
+                    "accApplicants": 378,
+                    "accRegistered": 270,
+                    "dailyApplicants": 2
                 },
                 "2025": {
-                    "accApplicants": 243,
-                    "accRegistered": 1,
-                    "dailyApplicants": 15
+                    "accApplicants": 304,
+                    "accRegistered": 2,
+                    "dailyApplicants": 28
                 }
             },
             "Mount Lebanon": {
                 "2019": {
-                    "accApplicants": 54,
-                    "accRegistered": 28,
-                    "dailyApplicants": 10
+                    "accApplicants": 67,
+                    "accRegistered": 37,
+                    "dailyApplicants": 8
                 },
                 "2023": {
-                    "accApplicants": 68,
-                    "accRegistered": 46,
-                    "dailyApplicants": 1
-                },
-                "2024": {
-                    "accApplicants": 43,
-                    "accRegistered": 37,
+                    "accApplicants": 73,
+                    "accRegistered": 51,
                     "dailyApplicants": 4
                 },
+                "2024": {
+                    "accApplicants": 47,
+                    "accRegistered": 41,
+                    "dailyApplicants": 0
+                },
                 "2025": {
-                    "accApplicants": 26,
+                    "accApplicants": 28,
                     "accRegistered": 0,
-                    "dailyApplicants": 3
+                    "dailyApplicants": 0
                 }
             },
             "Nabatieh": {
                 "2019": {
-                    "accApplicants": 18,
-                    "accRegistered": 4,
-                    "dailyApplicants": 2
-                },
-                "2023": {
-                    "accApplicants": 54,
-                    "accRegistered": 25,
-                    "dailyApplicants": 7
-                },
-                "2024": {
-                    "accApplicants": 27,
-                    "accRegistered": 12,
-                    "dailyApplicants": 5
-                },
-                "2025": {
-                    "accApplicants": 16,
-                    "accRegistered": 0,
+                    "accApplicants": 22,
+                    "accRegistered": 5,
                     "dailyApplicants": 1
-                }
-            },
-            "Saida": {
-                "2019": {
-                    "accApplicants": 66,
-                    "accRegistered": 4,
-                    "dailyApplicants": 8
                 },
                 "2023": {
-                    "accApplicants": 77,
-                    "accRegistered": 32,
-                    "dailyApplicants": 4
-                },
-                "2024": {
-                    "accApplicants": 54,
-                    "accRegistered": 40,
-                    "dailyApplicants": 9
-                },
-                "2025": {
-                    "accApplicants": 40,
-                    "accRegistered": 0,
-                    "dailyApplicants": 3
-                }
-            },
-            "Tripoli": {
-                "2019": {
-                    "accApplicants": 37,
-                    "accRegistered": 0,
-                    "dailyApplicants": 2
-                },
-                "2023": {
-                    "accApplicants": 90,
-                    "accRegistered": 15,
-                    "dailyApplicants": 0
+                    "accApplicants": 55,
+                    "accRegistered": 25,
+                    "dailyApplicants": 1
                 },
                 "2024": {
                     "accApplicants": 29,
                     "accRegistered": 13,
-                    "dailyApplicants": 7
+                    "dailyApplicants": 0
                 },
                 "2025": {
-                    "accApplicants": 11,
+                    "accApplicants": 24,
                     "accRegistered": 0,
+                    "dailyApplicants": 3
+                }
+            },
+            "Saida": {
+                "2019": {
+                    "accApplicants": 71,
+                    "accRegistered": 4,
                     "dailyApplicants": 1
+                },
+                "2023": {
+                    "accApplicants": 89,
+                    "accRegistered": 40,
+                    "dailyApplicants": 11
+                },
+                "2024": {
+                    "accApplicants": 62,
+                    "accRegistered": 46,
+                    "dailyApplicants": 1
+                },
+                "2025": {
+                    "accApplicants": 46,
+                    "accRegistered": 0,
+                    "dailyApplicants": 6
+                }
+            },
+            "Tripoli": {
+                "2019": {
+                    "accApplicants": 44,
+                    "accRegistered": 0,
+                    "dailyApplicants": 2
+                },
+                "2023": {
+                    "accApplicants": 95,
+                    "accRegistered": 17,
+                    "dailyApplicants": 4
+                },
+                "2024": {
+                    "accApplicants": 34,
+                    "accRegistered": 16,
+                    "dailyApplicants": 2
+                },
+                "2025": {
+                    "accApplicants": 12,
+                    "accRegistered": 0,
+                    "dailyApplicants": 0
                 }
             },
             "Tyre": {
                 "2019": {
-                    "accApplicants": 9,
+                    "accApplicants": 12,
                     "accRegistered": 2,
-                    "dailyApplicants": 0
+                    "dailyApplicants": 2
                 },
                 "2023": {
-                    "accApplicants": 42,
-                    "accRegistered": 23,
-                    "dailyApplicants": 0
+                    "accApplicants": 48,
+                    "accRegistered": 26,
+                    "dailyApplicants": 5
                 },
                 "2024": {
-                    "accApplicants": 19,
+                    "accApplicants": 21,
                     "accRegistered": 7,
-                    "dailyApplicants": 2
+                    "dailyApplicants": 0
                 },
                 "2025": {
-                    "accApplicants": 15,
+                    "accApplicants": 20,
                     "accRegistered": 0,
-                    "dailyApplicants": 2
+                    "dailyApplicants": 0
                 }
             }
         };
@@ -631,10 +631,10 @@
                     "hasID": 2
                 },
                 "2025": {
-                    "accApplicants": 7,
-                    "accRegistered": 1,
+                    "accApplicants": 8,
+                    "accRegistered": 2,
                     "droppedAll": 0,
-                    "hasID": 1
+                    "hasID": 0
                 }
             },
             "Beirut": {
@@ -657,8 +657,8 @@
                     "hasID": 5
                 },
                 "2025": {
-                    "accApplicants": 275,
-                    "accRegistered": 1,
+                    "accApplicants": 304,
+                    "accRegistered": 2,
                     "droppedAll": 0,
                     "hasID": 0
                 }
@@ -683,7 +683,7 @@
                     "hasID": 1
                 },
                 "2025": {
-                    "accApplicants": 27,
+                    "accApplicants": 28,
                     "accRegistered": 0,
                     "droppedAll": 0,
                     "hasID": 0
@@ -709,7 +709,7 @@
                     "hasID": 0
                 },
                 "2025": {
-                    "accApplicants": 17,
+                    "accApplicants": 24,
                     "accRegistered": 0,
                     "droppedAll": 0,
                     "hasID": 0
@@ -735,7 +735,7 @@
                     "hasID": 0
                 },
                 "2025": {
-                    "accApplicants": 40,
+                    "accApplicants": 46,
                     "accRegistered": 0,
                     "droppedAll": 0,
                     "hasID": 0
@@ -797,7 +797,7 @@
         
         // Chart instances
         let applicantsChart, registrationChart, campusComparisonChart, dailyComparisonChart, dailyCampusChart;
-        let currentDataSet = july15Data; // Default to comparable data
+        let currentDataSet = july17Data; // Default to comparable data
         
         // Initialize charts
         function initCharts() {
@@ -932,7 +932,7 @@
                         ...chartOptions.plugins,
                         title: {
                             display: true,
-                            text: 'Daily Applications on July 16 (Day 32) - Year Comparison',
+                            text: 'Daily Applications on July 17 (Day 33) - Year Comparison',
                             font: {
                                 size: 16,
                                 weight: '600'
@@ -957,7 +957,7 @@
                         ...chartOptions.plugins,
                         title: {
                             display: true,
-                            text: 'Daily Applications by Campus - July 16, 2025',
+                            text: 'Daily Applications by Campus - July 17, 2025',
                             font: {
                                 size: 16,
                                 weight: '600'
@@ -975,7 +975,7 @@
             const selectedDateView = document.getElementById('dateFilter').value;
             
             // Update data source based on date view
-            currentDataSet = selectedDateView === 'current' ? july15Data : fullYearData;
+            currentDataSet = selectedDateView === 'current' ? july17Data : fullYearData;
             
             if (selectedYear === 'compare') {
                 showYearComparison(selectedCampus);
@@ -1019,11 +1019,11 @@
             document.getElementById('registrationRate').textContent = regRate + '%';
             
             // Update notes for context
-            const dateNote = currentDataSet === july15Data ? 'As of July 16' : 'Full year (Oct 31)';
+            const dateNote = currentDataSet === july17Data ? 'As of July 17' : 'Full year (Oct 31)';
             document.getElementById('applicantsNote').textContent = dateNote;
             document.getElementById('registeredNote').textContent = dateNote;
-            document.getElementById('rateNote').textContent = year === '2025' && currentDataSet === july15Data ? 'Early in cycle' : '';
-            document.getElementById('todayNote').textContent = currentDataSet === july15Data ? 'July 16 Daily Total' : 'N/A';
+            document.getElementById('rateNote').textContent = year === '2025' && currentDataSet === july17Data ? 'Early in cycle' : '';
+            document.getElementById('todayNote').textContent = currentDataSet === july17Data ? 'July 17 Daily Total' : 'N/A';
             
             // Calculate changes vs previous year
             const prevYear = year === '2025' ? '2024' : year === '2024' ? '2023' : year === '2023' ? '2019' : null;
@@ -1061,7 +1061,7 @@
                     `<span class="trend-up">▲ ${regChange}% vs ${prevYear}</span>` : 
                     `<span class="trend-down">▼ ${Math.abs(regChange)}% vs ${prevYear}</span>`;
                 
-                if (currentDataSet === july15Data) {
+                if (currentDataSet === july17Data) {
                     if (todayChange === '∞') {
                         document.getElementById('todayChange').innerHTML = `<span class="trend-up">▲ New applications vs ${prevYear}</span>`;
                     } else {
@@ -1172,12 +1172,12 @@
             campusComparisonChart.update();
             
             // Update daily comparison charts if viewing comparable data
-            if (currentDataSet === july15Data) {
+            if (currentDataSet === july17Data) {
                 // Year comparison of daily applicants
                 const dailyTotals = years.map(y => {
                     let total = 0;
-                    for (const c in july15Data) {
-                        total += july15Data[c][y]?.dailyApplicants || 0;
+                    for (const c in july17Data) {
+                        total += july17Data[c][y]?.dailyApplicants || 0;
                     }
                     return total;
                 });
@@ -1185,7 +1185,7 @@
                 dailyComparisonChart.data = {
                     labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
                     datasets: [{
-                        label: 'Daily Applications on July 16',
+                        label: 'Daily Applications on July 17',
                         data: dailyTotals,
                         backgroundColor: [
                             'rgba(155, 89, 182, 0.8)',
@@ -1206,11 +1206,11 @@
                 
                 // Campus daily applicants for 2025
                 const dailyCampusData = [];
-                for (const c in july15Data) {
-                    if (july15Data[c]['2025']?.dailyApplicants > 0) {
+                for (const c in july17Data) {
+                    if (july17Data[c]['2025']?.dailyApplicants > 0) {
                         dailyCampusData.push({
                             name: c,
-                            daily: july15Data[c]['2025'].dailyApplicants
+                            daily: july17Data[c]['2025'].dailyApplicants
                         });
                     }
                 }
@@ -1278,13 +1278,13 @@
             campusComparisonChart.update();
             
             // Update daily comparison charts
-            if (currentDataSet === july15Data) {
+            if (currentDataSet === july17Data) {
                 // Year comparison of daily applicants
                 const years = ['2019', '2023', '2024', '2025'];
                 const dailyTotals = years.map(y => {
                     let total = 0;
-                    for (const c in july15Data) {
-                        total += july15Data[c][y]?.dailyApplicants || 0;
+                    for (const c in july17Data) {
+                        total += july17Data[c][y]?.dailyApplicants || 0;
                     }
                     return total;
                 });
@@ -1292,7 +1292,7 @@
                 dailyComparisonChart.data = {
                     labels: years.map(y => `Fall ${y}-${parseInt(y) + 1}`),
                     datasets: [{
-                        label: 'Daily Applications on July 16',
+                        label: 'Daily Applications on July 17',
                         data: dailyTotals,
                         backgroundColor: [
                             'rgba(155, 89, 182, 0.8)',
@@ -1461,8 +1461,19 @@
             document.getElementById('dateFilter').addEventListener('change', updateDashboard);
         }
         
-        // Start the dashboard
-        init();
+        // Start the dashboard with error handling
+        window.addEventListener('DOMContentLoaded', function() {
+            try {
+                console.log('Initializing dashboard...');
+                console.log('Chart.js loaded:', typeof Chart !== 'undefined');
+                console.log('Data loaded:', typeof july17Data !== 'undefined');
+                init();
+                console.log('Dashboard initialized successfully');
+            } catch (error) {
+                console.error('Error initializing dashboard:', error);
+                alert('Error loading dashboard: ' + error.message);
+            }
+        });
     </script>
 </body>
 </html>
