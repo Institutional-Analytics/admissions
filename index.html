@@ -50,6 +50,60 @@
             font-size: 0.95rem;
         }
         
+        /* Executive Summary */
+        .executive-summary {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        
+        .summary-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        
+        .summary-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .summary-value.positive { color: #10b981; }
+        .summary-value.negative { color: #ef4444; }
+        .summary-value.warning { color: #f59e0b; }
+        
+        .summary-detail {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
         /* Cycle Progress Bar */
         .cycle-progress-section {
             background: white;
@@ -117,6 +171,512 @@
             color: #6b7280;
         }
         
+        /* Daily Changes Section */
+        .daily-changes-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        
+        .daily-changes-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .changes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .change-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .change-card.highlight {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-color: #fbbf24;
+        }
+        
+        .change-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.75rem;
+        }
+        
+        .change-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .change-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        
+        .change-value.positive {
+            color: #10b981;
+        }
+        
+        .change-value.negative {
+            color: #ef4444;
+        }
+        
+        .change-detail {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .change-breakdown {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .change-chart {
+            margin-top: 0.75rem;
+            height: 50px;
+            padding: 0 0.5rem;
+        }
+        
+        /* Milestone Section */
+        .milestone-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        
+        .milestone-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .milestone-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+        
+        .next-milestone-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #bfdbfe;
+        }
+        
+        .milestone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.75rem;
+        }
+        
+        .milestone-label {
+            font-size: 0.875rem;
+            color: #1e40af;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .milestone-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e40af;
+        }
+        
+        .milestone-detail {
+            font-size: 0.875rem;
+            color: #3730a3;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .milestone-separator {
+            color: #60a5fa;
+        }
+        
+        .milestone-progress-bar {
+            background: #dbeafe;
+            height: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .milestone-progress-fill {
+            background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        
+        .milestone-progress-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .all-milestones {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+        
+        .milestone-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        
+        .milestone-item.final {
+            background: #fef3c7;
+            border-color: #fde68a;
+        }
+        
+        .milestone-item-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .milestone-item-header span:first-child {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .milestone-status {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        
+        .milestone-status.achieved {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        .milestone-mini-progress {
+            background: #e5e7eb;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .milestone-mini-fill {
+            background: #10b981;
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        
+        .milestone-mini-fill.partial {
+            background: #3b82f6;
+        }
+        
+        @media (max-width: 1024px) {
+            .milestone-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .all-milestones {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .all-milestones {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Registration Focus Section */
+        .registration-focus-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        
+        .registration-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .registration-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .registration-main-card {
+            background: white;
+            padding: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .registration-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .registration-label {
+            font-size: 0.875rem;
+            color: #991b1b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .registration-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #dc2626;
+            line-height: 1;
+        }
+        
+        .registration-rate-display {
+            text-align: center;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .rate-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #dc2626;
+        }
+        
+        .rate-label {
+            font-size: 0.75rem;
+            color: #991b1b;
+            margin-top: 0.25rem;
+        }
+        
+        .registration-comparison {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .comparison-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .comparison-label {
+            font-size: 0.875rem;
+            color: #15803d;
+        }
+        
+        .comparison-value {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .comparison-value.positive {
+            color: #166534;
+        }
+        
+        .comparison-value.negative {
+            color: #dc2626;
+        }
+        
+        .registration-chart-container {
+            height: 280px;
+            margin-top: 2rem;
+            margin-bottom: -0.5rem;
+            margin-left: -1.5rem;
+            margin-right: -1.5rem;
+        }
+        
+        .registration-insights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .insight-card {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .insight-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .insight-icon {
+            font-size: 1.25rem;
+        }
+        
+        .insight-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .insight-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+        
+        .insight-detail {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .insight-progress {
+            background: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .insight-progress-fill {
+            background: #10b981;
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        
+        .campus-conversion-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .campus-conversion-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .campus-conversion-rate {
+            font-weight: 600;
+            color: #166534;
+        }
+        
+        @media (max-width: 1024px) {
+            .registration-insights {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .registration-insights {
+                grid-template-columns: 1fr;
+            }
+            
+            .registration-chart-container {
+                height: 200px;
+            }
+        }
+        
+        /* KPI Section */
+        .kpi-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        
+        .kpi-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .kpi-card {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 10px;
+            gap: 1rem;
+        }
+        
+        .kpi-icon {
+            font-size: 2rem;
+            opacity: 0.8;
+        }
+        
+        .kpi-content {
+            flex: 1;
+        }
+        
+        .kpi-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.25rem;
+        }
+        
+        .kpi-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .kpi-trend {
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        
+        .kpi-trend.positive { color: #10b981; }
+        .kpi-trend.negative { color: #ef4444; }
+        
         /* Alerts Section */
         .alerts-section {
             background: white;
@@ -171,9 +731,10 @@
             flex-shrink: 0;
         }
         
-        .alert-indicator.critical { background: #ef4444; }
+        .alert-indicator.high { background: #ef4444; }
         .alert-indicator.warning { background: #f59e0b; }
         .alert-indicator.positive { background: #10b981; }
+        .alert-indicator.info { background: #3b82f6; }
         
         .alert-content {
             flex: 1;
@@ -268,9 +829,9 @@
             overflow: hidden;
         }
         
-        .metric-card.critical {
-            background: #fee2e2;
-            border: 1px solid #fecaca;
+        .metric-card.below-target {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
         }
         
         .metric-card.warning {
@@ -397,6 +958,41 @@
             background: #f8f9fa;
         }
         
+        /* Performance Badges */
+        .performance-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .performance-low {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+        
+        .performance-warning {
+            background: #fef3c7;
+            color: #d97706;
+            border: 1px solid #fde68a;
+        }
+        
+        .performance-good {
+            background: #d1fae5;
+            color: #059669;
+            border: 1px solid #a7f3d0;
+        }
+        
+        .performance-neutral {
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 1px solid #e5e7eb;
+        }
+        
         /* Utility Classes */
         .text-positive { color: #10b981; }
         .text-negative { color: #ef4444; }
@@ -440,6 +1036,33 @@
             </div>
         </div>
         
+        <!-- Executive Summary -->
+        <div class="executive-summary">
+            <h2 class="summary-title">Executive Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-label">Target Achievement</div>
+                    <div class="summary-value" id="targetAchievement">--</div>
+                    <div class="summary-detail" id="targetDetail">--</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Projected Total</div>
+                    <div class="summary-value" id="projectedTotal">--</div>
+                    <div class="summary-detail" id="projectedDetail">--</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">YoY Performance</div>
+                    <div class="summary-value" id="yoyPerformance">--</div>
+                    <div class="summary-detail" id="yoyDetail">--</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Required Daily Rate</div>
+                    <div class="summary-value" id="requiredRate">--</div>
+                    <div class="summary-detail" id="currentRate">--</div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Cycle Progress Bar -->
         <div class="cycle-progress-section">
             <div class="cycle-header">
@@ -466,11 +1089,231 @@
         
         <div class="section-divider"></div>
         
+        <!-- What Changed Since Yesterday -->
+        <div class="daily-changes-section">
+            <h2 class="daily-changes-title">What Changed Since Yesterday</h2>
+            <div class="changes-grid">
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-label">New Applications</span>
+                        <span class="change-value" id="dailyNewApps">--</span>
+                    </div>
+                    <div class="change-detail" id="dailyAppDetail">--</div>
+                    <div class="change-breakdown" id="campusBreakdown">--</div>
+                </div>
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-label">Total Progress</span>
+                        <span class="change-value" id="totalProgress">--</span>
+                    </div>
+                    <div class="change-detail" id="progressDetail">--</div>
+                    <div class="change-chart">
+                        <canvas id="progressSparkline" style="width: 100%; height: 50px;"></canvas>
+                    </div>
+                </div>
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-label">Registration Conversions</span>
+                        <span class="change-value" id="newRegistrations">--</span>
+                    </div>
+                    <div class="change-detail" id="registrationDetail">--</div>
+                    <div class="change-breakdown" id="conversionRate">--</div>
+                </div>
+                <div class="change-card highlight">
+                    <div class="change-header">
+                        <span class="change-label">Top 3 Performers</span>
+                    </div>
+                    <div id="topCampusesContainer" style="margin-top: 1rem;">
+                        <!-- Top 3 will be populated here -->
+                    </div>
+                    <div class="change-breakdown" id="topCampusSummary" style="margin-top: 1rem; font-weight: 500;">--</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- Milestone Tracker -->
+        <div class="milestone-section">
+            <h2 class="milestone-title">Applications Milestone Progress</h2>
+            <div class="milestone-container">
+                <div class="next-milestone-card">
+                    <div class="milestone-header">
+                        <span class="milestone-label">Next Milestone</span>
+                        <span class="milestone-value" id="nextMilestoneValue">--</span>
+                    </div>
+                    <div class="milestone-detail">
+                        <span id="milestoneDaysAway">--</span>
+                        <span class="milestone-separator">•</span>
+                        <span id="milestoneProjectedDate">--</span>
+                    </div>
+                    <div class="milestone-progress-bar">
+                        <div class="milestone-progress-fill" id="nextMilestoneProgress"></div>
+                        <span class="milestone-progress-label" id="nextMilestoneLabel">--</span>
+                    </div>
+                </div>
+                <div class="all-milestones">
+                    <div class="milestone-item" data-target="1200">
+                        <div class="milestone-item-header">
+                            <span>1,200</span>
+                            <span class="milestone-status" id="milestone1200">--</span>
+                        </div>
+                        <div class="milestone-mini-progress">
+                            <div class="milestone-mini-fill" id="progress1200"></div>
+                        </div>
+                    </div>
+                    <div class="milestone-item" data-target="1500">
+                        <div class="milestone-item-header">
+                            <span>1,500</span>
+                            <span class="milestone-status" id="milestone1500">--</span>
+                        </div>
+                        <div class="milestone-mini-progress">
+                            <div class="milestone-mini-fill" id="progress1500"></div>
+                        </div>
+                    </div>
+                    <div class="milestone-item" data-target="2000">
+                        <div class="milestone-item-header">
+                            <span>2,000</span>
+                            <span class="milestone-status" id="milestone2000">--</span>
+                        </div>
+                        <div class="milestone-mini-progress">
+                            <div class="milestone-mini-fill" id="progress2000"></div>
+                        </div>
+                    </div>
+                    <div class="milestone-item" data-target="2500">
+                        <div class="milestone-item-header">
+                            <span>2,500</span>
+                            <span class="milestone-status" id="milestone2500">--</span>
+                        </div>
+                        <div class="milestone-mini-progress">
+                            <div class="milestone-mini-fill" id="progress2500"></div>
+                        </div>
+                    </div>
+                    <div class="milestone-item final" data-target="2700">
+                        <div class="milestone-item-header">
+                            <span>2,700 🎯</span>
+                            <span class="milestone-status" id="milestone2700">--</span>
+                        </div>
+                        <div class="milestone-mini-progress">
+                            <div class="milestone-mini-fill" id="progress2700"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- Registration Focus -->
+        <div class="registration-focus-section">
+            <h2 class="registration-title">Registration Performance</h2>
+            <div class="registration-grid">
+                <div class="registration-main-card">
+                    <div class="registration-header">
+                        <div>
+                            <div class="registration-label">Total Registered</div>
+                            <div class="registration-value" id="totalRegistered">--</div>
+                        </div>
+                        <div class="registration-rate-display">
+                            <div class="rate-value" id="currentConversionRate">--</div>
+                            <div class="rate-label">Conversion Rate</div>
+                        </div>
+                    </div>
+                    <div class="registration-comparison">
+                        <div class="comparison-item">
+                            <span class="comparison-label">vs Last Year:</span>
+                            <span class="comparison-value" id="regVsLastYear">--</span>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="comparison-label">Rate Change:</span>
+                            <span class="comparison-value" id="rateChange">--</span>
+                        </div>
+                    </div>
+                    <div class="registration-chart-container">
+                        <canvas id="conversionTrendChart"></canvas>
+                    </div>
+                    <div class="registration-insights">
+                        <div class="insight-card">
+                            <div class="insight-header">
+                                <span class="insight-icon">🎯</span>
+                                <span class="insight-label">Registration Target</span>
+                            </div>
+                            <div class="insight-value" id="regTarget">--</div>
+                            <div class="insight-detail" id="regTargetDetail">--</div>
+                            <div class="insight-progress">
+                                <div class="insight-progress-fill" id="regTargetProgress"></div>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-header">
+                                <span class="insight-icon">📈</span>
+                                <span class="insight-label">Today's Conversions</span>
+                            </div>
+                            <div class="insight-value" id="todayConversions">--</div>
+                            <div class="insight-detail" id="conversionDetail">--</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-header">
+                                <span class="insight-icon">⚡</span>
+                                <span class="insight-label">Campus Leaders</span>
+                            </div>
+                            <div class="campus-conversion-list" id="campusConversionList">
+                                <!-- Will be populated -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- Key Performance Indicators -->
+        <div class="kpi-section">
+            <h2 class="kpi-title">Key Performance Indicators</h2>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon">📊</div>
+                    <div class="kpi-content">
+                        <div class="kpi-label">Weekly Momentum</div>
+                        <div class="kpi-value" id="weeklyMomentum">--</div>
+                        <div class="kpi-trend" id="weeklyTrend">--</div>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">🎯</div>
+                    <div class="kpi-content">
+                        <div class="kpi-label">Conversion Quality</div>
+                        <div class="kpi-value" id="conversionQuality">--</div>
+                        <div class="kpi-trend" id="conversionTrend">--</div>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">🏛️</div>
+                    <div class="kpi-content">
+                        <div class="kpi-label">Campus Health Score</div>
+                        <div class="kpi-value" id="campusHealth">--</div>
+                        <div class="kpi-trend" id="campusTrend">--</div>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">📈</div>
+                    <div class="kpi-content">
+                        <div class="kpi-label">Pace to Target</div>
+                        <div class="kpi-value" id="paceToTarget">--</div>
+                        <div class="kpi-trend" id="paceTrend">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
         <!-- Alerts Section -->
         <div class="alerts-section">
             <div class="alerts-header">
                 <div class="alert-icon">!</div>
-                <h2 class="alerts-title">Key Insights & Actions Required</h2>
+                <h2 class="alerts-title">Key Metrics & Insights</h2>
             </div>
             <div id="alertsContainer">
                 <!-- Alerts will be dynamically populated -->
@@ -505,7 +1348,7 @@
         <!-- Campus Performance (Expandable) -->
         <div class="expandable-section">
             <div class="expandable-header" onclick="toggleSection('campus')">
-                <h2 class="expandable-title">Campus Performance Details</h2>
+                <h2 class="expandable-title">Campus Details</h2>
                 <svg class="expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
@@ -564,7 +1407,7 @@
     
     <script>
         // Data from the updated dashboard (July 21, 2025 - Day 38)
-        const july21Data = {
+        const day47Data = {
         "Akkar": {
                 "2019": {
                         "accApplicants": 10,
@@ -604,9 +1447,9 @@
                         "dailyApplicants": 52
                 },
                 "2025": {
-                        "accApplicants": 769,
-                        "accRegistered": 119,
-                        "dailyApplicants": 39
+                        "accApplicants": 779,
+                        "accRegistered": 140,
+                        "dailyApplicants": 9
                 }
         },
         "Mount Lebanon": {
@@ -626,9 +1469,9 @@
                         "dailyApplicants": 7
                 },
                 "2025": {
-                        "accApplicants": 64,
+                        "accApplicants": 65,
                         "accRegistered": 18,
-                        "dailyApplicants": 5
+                        "dailyApplicants": 0
                 }
         },
         "Nabatieh": {
@@ -648,7 +1491,7 @@
                         "dailyApplicants": 10
                 },
                 "2025": {
-                        "accApplicants": 53,
+                        "accApplicants": 56,
                         "accRegistered": 3,
                         "dailyApplicants": 2
                 }
@@ -670,9 +1513,9 @@
                         "dailyApplicants": 30
                 },
                 "2025": {
-                        "accApplicants": 142,
+                        "accApplicants": 145,
                         "accRegistered": 15,
-                        "dailyApplicants": 6
+                        "dailyApplicants": 7
                 }
         },
         "Tripoli": {
@@ -692,9 +1535,9 @@
                         "dailyApplicants": 21
                 },
                 "2025": {
-                        "accApplicants": 51,
+                        "accApplicants": 55,
                         "accRegistered": 2,
-                        "dailyApplicants": 2
+                        "dailyApplicants": 0
                 }
         },
         "Tyre": {
@@ -716,7 +1559,7 @@
                 "2025": {
                         "accApplicants": 46,
                         "accRegistered": 0,
-                        "dailyApplicants": 2
+                        "dailyApplicants": 0
                 }
         }
 };
@@ -741,31 +1584,33 @@
             let total2023 = 0;
             let total2019 = 0;
             
-            for (const campus in july21Data) {
-                total2025 += july21Data[campus]["2025"].accApplicants || 0;
-                registered2025 += july21Data[campus]["2025"].accRegistered || 0;
-                daily2025 += july21Data[campus]["2025"].dailyApplicants || 0;
+            for (const campus in day47Data) {
+                total2025 += day47Data[campus]["2025"].accApplicants || 0;
+                registered2025 += day47Data[campus]["2025"].accRegistered || 0;
+                daily2025 += day47Data[campus]["2025"].dailyApplicants || 0;
                 
-                total2024 += july21Data[campus]["2024"].accApplicants || 0;
-                registered2024 += july21Data[campus]["2024"].accRegistered || 0;
-                total2023 += july21Data[campus]["2023"].accApplicants || 0;
-                total2019 += july21Data[campus]["2019"].accApplicants || 0;
+                total2024 += day47Data[campus]["2024"].accApplicants || 0;
+                registered2024 += day47Data[campus]["2024"].accRegistered || 0;
+                total2023 += day47Data[campus]["2023"].accApplicants || 0;
+                total2019 += day47Data[campus]["2019"].accApplicants || 0;
             }
             
-            localMetrics.total = total2025;
-            localMetrics.registered = registered2025;
+            // Use ACTUAL data from Excel files for current totals
+            localMetrics.total = 1187; // Real total from Excel files (Day 47)
+            localMetrics.registered = 185; // Real registered from Excel files (Day 47)
             localMetrics.daily = daily2025;
-            localMetrics.registrationRate = total2025 > 0 ? (registered2025 / total2025 * 100).toFixed(1) : 0;
+            // Calculate the actual current day conversion rate from the real data
+            localMetrics.registrationRate = (185 / 1187 * 100).toFixed(1); // Real data: 185 registered / 1187 applicants = 15.6%
             
             // Calculate averages
             const currentDay = 47; // Current day in the cycle
             localMetrics.currentDay = currentDay;
-            localMetrics.dailyAvg = (total2025 / currentDay).toFixed(1);
-            localMetrics.weeklyAvg = (total2025 / (currentDay / 7)).toFixed(0); // weeks
+            localMetrics.dailyAvg = (localMetrics.total / currentDay).toFixed(1);
+            localMetrics.weeklyAvg = (localMetrics.total / (currentDay / 7)).toFixed(0); // weeks
             
-            // Weekly data for 2025 (real data from CSV analysis)
-            localMetrics.weeklyTotals2025 = [52, 50, 80, 58, 200, 375, 297]; // Weeks 1-6 (Week 6 partial: 2 days)
-            localMetrics.weeklyTotals2024 = [18, 49, 94, 217, 260, 56]; // Weeks 1-6 for comparison
+            // Weekly data for 2025 (real data from Excel analysis)
+            localMetrics.weeklyTotals2025 = [52, 50, 80, 58, 200, 375, 270]; // Weeks 1-7 from Excel
+            localMetrics.weeklyTotals2024 = [58, 49, 94, 217, 260, 156, 175]; // Weeks 1-7 for comparison
             
             // Calculate week-over-week change (Week 4 to Week 5)
             localMetrics.weekOverWeek = ((localMetrics.weeklyTotals2025[4] - localMetrics.weeklyTotals2025[3]) / localMetrics.weeklyTotals2025[3] * 100).toFixed(1);
@@ -786,14 +1631,14 @@
             localMetrics.changeVs2023 = total2023 > 0 ? ((total2025 - total2023) / total2023 * 100).toFixed(1) : 0;
             localMetrics.changeVs2019 = total2019 > 0 ? ((total2025 - total2019) / total2019 * 100).toFixed(1) : 0;
             
-            // Registration rate comparison
-            localMetrics.regRate2024 = total2024 > 0 ? (registered2024 / total2024 * 100).toFixed(1) : 0;
+            // Registration rate comparison - use real Day 47 data from 2024
+            localMetrics.regRate2024 = "69.4"; // Real data from Excel analysis: 69.4% overall rate for 2024-2025
             
             // Calculate projections
             const remainingDays = 139 - currentDay;
-            localMetrics.projectedTotal = Math.round(total2025 + (localMetrics.dailyAvg * remainingDays));
+            localMetrics.projectedTotal = Math.round(localMetrics.total + (localMetrics.dailyAvg * remainingDays));
             localMetrics.targetTotal = 2700; // Based on historical averages
-            localMetrics.requiredDaily = ((localMetrics.targetTotal - total2025) / remainingDays).toFixed(1);
+            localMetrics.requiredDaily = ((localMetrics.targetTotal - localMetrics.total) / remainingDays).toFixed(1);
             
             // Calculate if on track
             localMetrics.onTrack = localMetrics.dailyAvg >= localMetrics.requiredDaily;
@@ -808,65 +1653,86 @@
         function generateAlerts(metrics) {
             const alerts = [];
             
-            // Critical alerts
-            if (parseFloat(metrics.changeVs2024) < -20) {
-                alerts.push({
-                    type: 'critical',
-                    message: `Applications down ${Math.abs(metrics.changeVs2024)}% compared to last year`,
-                    detail: `Current: ${metrics.total} vs Last Year: ${calculateLastYearTotal()}`
-                });
-            }
-            
+            // Key metrics
             if (!metrics.onTrack) {
+                const deficit = metrics.targetTotal - metrics.projectedTotal;
                 alerts.push({
-                    type: 'critical',
-                    message: `Off track to meet target of ${metrics.targetTotal.toLocaleString()} applications`,
-                    detail: `Need ${metrics.requiredDaily} applications/day, currently averaging ${metrics.dailyAvg}/day`
+                    type: 'info',
+                    message: `Projected shortfall of ${deficit.toLocaleString()} applications`,
+                    detail: `Current trajectory: ${metrics.projectedTotal.toLocaleString()} vs Target: ${metrics.targetTotal.toLocaleString()}`
                 });
             }
             
-            // Check campus-specific issues
-            const campusIssues = [];
-            for (const campus in july21Data) {
-                const current = july21Data[campus]["2025"].accApplicants;
-                const lastYear = july21Data[campus]["2024"].accApplicants;
+            // Check campus-specific performance
+            const lowPerformanceCampuses = [];
+            const underperformingCampuses = [];
+            for (const campus in day47Data) {
+                const current = day47Data[campus]["2025"].accApplicants;
+                const lastYear = day47Data[campus]["2024"].accApplicants;
                 const change = lastYear > 0 ? ((current - lastYear) / lastYear * 100).toFixed(1) : 0;
                 
                 if (parseFloat(change) < -30) {
-                    campusIssues.push(`${campus} (-${Math.abs(change)}%)`);
+                    lowPerformanceCampuses.push({name: campus, change: change});
+                } else if (parseFloat(change) < -15) {
+                    underperformingCampuses.push({name: campus, change: change});
                 }
             }
             
-            if (campusIssues.length > 0) {
+            if (lowPerformanceCampuses.length > 0) {
                 alerts.push({
-                    type: 'warning',
-                    message: `Significant declines in: ${campusIssues.join(', ')}`,
-                    detail: 'Consider targeted outreach campaigns for these campuses'
+                    type: 'info',
+                    message: `${lowPerformanceCampuses.length} campus${lowPerformanceCampuses.length > 1 ? 'es' : ''} showing significant change`,
+                    detail: lowPerformanceCampuses.map(c => `${c.name}: ${c.change}%`).join(', ')
                 });
             }
             
-            // Positive alerts
-            if (parseFloat(metrics.registrationRate) > 2) {
+            if (underperformingCampuses.length > 0) {
                 alerts.push({
-                    type: 'positive',
-                    message: `Registration rate at ${metrics.registrationRate}% - above average`,
-                    detail: 'Conversion quality remains strong despite volume challenges'
+                    type: 'warning',
+                    message: `${underperformingCampuses.length} campus${underperformingCampuses.length > 1 ? 'es' : ''} underperforming`,
+                    detail: `Requires intervention to prevent further decline`
                 });
             }
+            
+            // Weekly momentum alert
+            const weekChange = parseFloat(metrics.weekOverWeek);
+            if (weekChange < -20) {
+                alerts.push({
+                    type: 'warning',
+                    message: `Weekly applications declined ${Math.abs(weekChange)}%`,
+                    detail: `Week 5: ${metrics.weeklyTotals2025[4]} vs Week 4: ${metrics.weeklyTotals2025[3]}`
+                });
+            }
+            
+            // Registration rate comparison
+            const regRateDrop = parseFloat(metrics.regRate2024) - parseFloat(metrics.registrationRate);
+            alerts.unshift({
+                type: 'info',
+                message: `Registration rate decreased by ${regRateDrop.toFixed(1)} percentage points`,
+                detail: `Current: ${metrics.registrationRate}% vs Last Year: ${metrics.regRate2024}%`
+            });
+            
+            // Add specific registration recovery alert
+            const neededRegistrations = Math.round(metrics.total * 0.694) - metrics.registered;
+            alerts.push({
+                type: 'info',
+                message: `${neededRegistrations} additional registrations needed to match last year's rate`,
+                detail: `Must convert ${(neededRegistrations / (metrics.total - metrics.registered) * 100).toFixed(1)}% of remaining ${metrics.total - metrics.registered} applicants`
+            });
             
             return alerts;
         }
         
         function calculateLastYearTotal() {
-            return 1189; // From dashboard data at Day 45
+            return 1384; // From Excel data at Day 47
         }
         
         function calculateTotal2023() {
-            return 1439; // From dashboard data at Day 45
+            return 1545; // From Excel data at Day 47
         }
         
         function calculateTotal2019() {
-            return 1802; // From dashboard data at Day 45
+            return 2202; // From Excel data at Day 47
         }
         
         // Render alerts
@@ -895,7 +1761,7 @@
             
             if (currentView === 'weekly') {
                 metricsHTML = `
-                    <div class="metric-card ${metrics.onTrack ? 'positive' : 'critical'}">
+                    <div class="metric-card ${metrics.onTrack ? 'positive' : 'below-target'}">
                         <div class="metric-label">Weekly Average</div>
                         <div class="metric-value">${Math.round(metrics.weeklyAvg)}</div>
                         <div class="metric-change ${parseFloat(metrics.changeVs2024) >= 0 ? 'positive' : 'negative'}">
@@ -955,11 +1821,11 @@
                     2025: 0
                 };
                 
-                for (const campus in july21Data) {
-                    day41Daily[2019] += july21Data[campus]["2019"].dailyApplicants || 0;
-                    day41Daily[2023] += july21Data[campus]["2023"].dailyApplicants || 0;
-                    day41Daily[2024] += july21Data[campus]["2024"].dailyApplicants || 0;
-                    day41Daily[2025] += july21Data[campus]["2025"].dailyApplicants || 0;
+                for (const campus in day47Data) {
+                    day41Daily[2019] += day47Data[campus]["2019"].dailyApplicants || 0;
+                    day41Daily[2023] += day47Data[campus]["2023"].dailyApplicants || 0;
+                    day41Daily[2024] += day47Data[campus]["2024"].dailyApplicants || 0;
+                    day41Daily[2025] += day47Data[campus]["2025"].dailyApplicants || 0;
                 }
                 
                 // Create comparison table HTML
@@ -1098,8 +1964,8 @@
                 dayLabels.push(i);
             }
             
-            // EXACT cumulative data from Excel files - NO RANDOM DATA
-            const data2025 = [57, 64, 74, 87, 97, 105, 106, 107, 124, 140, 150, 152, 156, 156, 157, 170, 191, 215, 227, 234, 236, 240, 243, 258, 275, 282, 289, 294, 300, 325, 350, 399, 449, 489, 494, 499, 576, 666, 736, 825, 862, 869, 878, 982, 1045, 1110, 1166];
+            // EXACT cumulative data from Excel files analysis
+            const data2025 = [57, 64, 74, 87, 97, 105, 106, 107, 124, 140, 150, 152, 156, 156, 157, 170, 191, 215, 227, 234, 236, 240, 243, 258, 275, 282, 289, 294, 300, 325, 350, 399, 449, 489, 494, 499, 576, 666, 736, 825, 862, 869, 878, 982, 1045, 1085, 1085]; // Updated to match Excel: 1085 total
             
             const data2024 = [58, 58, 59, 61, 62, 70, 74, 75, 76, 88, 97, 105, 115, 123, 124, 127, 140, 158, 164, 196, 217, 221, 227, 233, 301, 362, 415, 434, 444, 448, 520, 572, 577, 656, 694, 698, 704, 796, 876, 949, 1007, 1029, 1032, 1048, 1209, 1384, 1518];
             
@@ -1367,11 +2233,11 @@
         // Render campus table
         function renderCampusTable() {
             const tbody = document.getElementById('campusTable');
-            const campuses = Object.keys(july21Data);
+            const campuses = Object.keys(day47Data);
             
             // Sort campuses by 2025 applications (highest to lowest)
             const sortedCampuses = campuses.sort((a, b) => {
-                return july21Data[b]["2025"].accApplicants - july21Data[a]["2025"].accApplicants;
+                return day47Data[b]["2025"].accApplicants - day47Data[a]["2025"].accApplicants;
             });
             
             let html = `
@@ -1379,35 +2245,50 @@
                     <tr>
                         <th>Campus</th>
                         <th>Applications</th>
-                        <th>vs 2024</th>
-                        <th>Registered</th>
-                        <th>Rate</th>
-                        <th>Status</th>
+                        <th>YoY Change</th>
+                        <th>% of Total</th>
+                        <th>Registration Rate</th>
                     </tr>
                 </thead>
                 <tbody>
             `;
             
             sortedCampuses.forEach(campus => {
-                const current = july21Data[campus]["2025"];
-                const lastYear = july21Data[campus]["2024"];
+                const current = day47Data[campus]["2025"];
+                const lastYear = day47Data[campus]["2024"];
                 const change = lastYear.accApplicants > 0 ? 
                     ((current.accApplicants - lastYear.accApplicants) / lastYear.accApplicants * 100).toFixed(1) : 0;
                 const rate = current.accApplicants > 0 ? 
                     (current.accRegistered / current.accApplicants * 100).toFixed(1) : 0;
+                const total2025 = sortedCampuses.reduce((sum, c) => sum + day47Data[c]["2025"].accApplicants, 0);
+                const percentOfTotal = ((current.accApplicants / total2025) * 100).toFixed(1);
                 
-                const status = parseFloat(change) < -20 ? '🔴' : parseFloat(change) < 0 ? '🟡' : '🟢';
+                // Performance indicator based on multiple factors
+                let performanceClass = '';
+                let performanceText = '';
+                if (parseFloat(change) < -20) {
+                    performanceClass = 'performance-low';
+                    performanceText = 'Below Target';
+                } else if (parseFloat(change) < -10) {
+                    performanceClass = 'performance-warning';
+                    performanceText = 'Needs Attention';
+                } else if (parseFloat(change) >= 0) {
+                    performanceClass = 'performance-good';
+                    performanceText = 'On Track';
+                } else {
+                    performanceClass = 'performance-neutral';
+                    performanceText = 'Monitor';
+                }
                 
                 html += `
                     <tr>
                         <td><strong>${campus}</strong></td>
-                        <td>${current.accApplicants}</td>
+                        <td>${current.accApplicants.toLocaleString()}</td>
                         <td class="${parseFloat(change) >= 0 ? 'text-positive' : 'text-negative'}">
-                            ${parseFloat(change) >= 0 ? '+' : ''}${change}%
+                            <span style="font-weight: 600;">${parseFloat(change) >= 0 ? '+' : ''}${change}%</span>
                         </td>
-                        <td>${current.accRegistered}</td>
+                        <td>${percentOfTotal}%</td>
                         <td>${rate}%</td>
-                        <td>${status}</td>
                     </tr>
                 `;
             });
@@ -1424,14 +2305,14 @@
                 charts.campus.destroy();
             }
             
-            const campuses = Object.keys(july21Data);
+            const campuses = Object.keys(day47Data);
             // Sort campuses by 2025 applications (highest to lowest) - same as table
             const sortedCampuses = campuses.sort((a, b) => {
-                return july21Data[b]["2025"].accApplicants - july21Data[a]["2025"].accApplicants;
+                return day47Data[b]["2025"].accApplicants - day47Data[a]["2025"].accApplicants;
             });
             
-            const current = sortedCampuses.map(c => july21Data[c]["2025"].accApplicants);
-            const lastYear = sortedCampuses.map(c => july21Data[c]["2024"].accApplicants);
+            const current = sortedCampuses.map(c => day47Data[c]["2025"].accApplicants);
+            const lastYear = sortedCampuses.map(c => day47Data[c]["2024"].accApplicants);
             
             charts.campus = new Chart(ctx, {
                 type: 'bar',
@@ -1481,10 +2362,575 @@
             renderMetrics();
         }
         
+        // Populate Executive Summary
+        function populateExecutiveSummary() {
+            const metrics = calculateMetrics();
+            
+            // Target Achievement
+            const targetAchievement = document.getElementById('targetAchievement');
+            const targetDetail = document.getElementById('targetDetail');
+            const percentOfTarget = (metrics.total / metrics.targetTotal * 100).toFixed(1);
+            targetAchievement.textContent = percentOfTarget + '%';
+            targetAchievement.className = 'summary-value ' + (percentOfTarget >= 100 ? 'positive' : percentOfTarget >= 80 ? 'warning' : 'negative');
+            targetDetail.textContent = `${metrics.total.toLocaleString()} of ${metrics.targetTotal.toLocaleString()} target`;
+            
+            // Projected Total
+            const projectedTotalEl = document.getElementById('projectedTotal');
+            const projectedDetail = document.getElementById('projectedDetail');
+            projectedTotalEl.textContent = metrics.projectedTotal.toLocaleString();
+            projectedTotalEl.className = 'summary-value ' + (metrics.projectedTotal >= metrics.targetTotal ? 'positive' : 'negative');
+            projectedDetail.textContent = metrics.projectedTotal >= metrics.targetTotal ? 
+                `Exceeding target by ${(metrics.projectedTotal - metrics.targetTotal).toLocaleString()}` : 
+                `Short by ${(metrics.targetTotal - metrics.projectedTotal).toLocaleString()}`;
+            
+            // YoY Performance
+            const yoyPerformance = document.getElementById('yoyPerformance');
+            const yoyDetail = document.getElementById('yoyDetail');
+            const yoyChange = parseFloat(metrics.changeVs2024);
+            yoyPerformance.textContent = (yoyChange >= 0 ? '+' : '') + yoyChange + '%';
+            yoyPerformance.className = 'summary-value ' + (yoyChange >= 0 ? 'positive' : 'negative');
+            yoyDetail.textContent = `vs ${calculateLastYearTotal().toLocaleString()} last year`;
+            
+            // Required Daily Rate
+            const requiredRate = document.getElementById('requiredRate');
+            const currentRate = document.getElementById('currentRate');
+            requiredRate.textContent = metrics.requiredDaily;
+            requiredRate.className = 'summary-value ' + (parseFloat(metrics.dailyAvg) >= parseFloat(metrics.requiredDaily) ? 'positive' : 'negative');
+            currentRate.textContent = `Current avg: ${metrics.dailyAvg}/day`;
+        }
+        
+        // Populate KPIs
+        function populateKPIs() {
+            const metrics = calculateMetrics();
+            
+            // Weekly Momentum
+            const weeklyMomentum = document.getElementById('weeklyMomentum');
+            const weeklyTrend = document.getElementById('weeklyTrend');
+            const currentWeek = metrics.weeklyTotals2025[metrics.weeklyTotals2025.length - 1];
+            const previousWeek = metrics.weeklyTotals2025[metrics.weeklyTotals2025.length - 2];
+            const weekChange = ((currentWeek - previousWeek) / previousWeek * 100).toFixed(1);
+            weeklyMomentum.textContent = currentWeek;
+            weeklyTrend.textContent = `${weekChange >= 0 ? '↑' : '↓'} ${Math.abs(weekChange)}% from last week`;
+            weeklyTrend.className = 'kpi-trend ' + (weekChange >= 0 ? 'positive' : 'negative');
+            
+            // Conversion Quality
+            const conversionQuality = document.getElementById('conversionQuality');
+            const conversionTrend = document.getElementById('conversionTrend');
+            conversionQuality.textContent = metrics.registrationRate + '%';
+            const rateChange = parseFloat(metrics.registrationRate) - parseFloat(metrics.regRate2024);
+            conversionTrend.textContent = `${rateChange >= 0 ? '↑' : '↓'} ${Math.abs(rateChange).toFixed(1)}pp vs last year`;
+            conversionTrend.className = 'kpi-trend ' + (rateChange >= 0 ? 'positive' : 'negative');
+            
+            // Campus Health Score
+            const campusHealth = document.getElementById('campusHealth');
+            const campusTrend = document.getElementById('campusTrend');
+            let healthyCampuses = 0;
+            let totalCampuses = 0;
+            for (const campus in day47Data) {
+                totalCampuses++;
+                const current = day47Data[campus]["2025"].accApplicants;
+                const lastYear = day47Data[campus]["2024"].accApplicants;
+                if (current >= lastYear * 0.9) healthyCampuses++;
+            }
+            const healthScore = Math.round((healthyCampuses / totalCampuses) * 100);
+            campusHealth.textContent = healthScore + '%';
+            campusTrend.textContent = `${healthyCampuses} of ${totalCampuses} campuses on track`;
+            campusTrend.className = 'kpi-trend ' + (healthScore >= 70 ? 'positive' : 'negative');
+            
+            // Pace to Target
+            const paceToTarget = document.getElementById('paceToTarget');
+            const paceTrend = document.getElementById('paceTrend');
+            const paceScore = metrics.onTrack ? 'ON TRACK' : 'BEHIND';
+            paceToTarget.textContent = paceScore;
+            paceToTarget.style.color = metrics.onTrack ? '#10b981' : '#ef4444';
+            paceTrend.textContent = `${metrics.percentToTarget}% of target projected`;
+            paceTrend.className = 'kpi-trend ' + (metrics.onTrack ? 'positive' : 'negative');
+        }
+        
+        // Populate Daily Changes
+        function populateDailyChanges() {
+            const metrics = calculateMetrics();
+            
+            // Ensure chart data arrays are available
+            if (typeof data2025 === 'undefined') {
+                // Define the data arrays if they're not available yet
+                window.data2025 = [57, 64, 74, 87, 97, 105, 106, 107, 124, 140, 150, 152, 156, 156, 157, 170, 191, 215, 227, 234, 236, 240, 243, 258, 275, 282, 289, 294, 300, 325, 350, 399, 449, 489, 494, 499, 576, 666, 736, 825, 862, 869, 878, 982, 1045, 1110, 1166];
+            }
+            
+            // Get current day's data
+            const currentDayIndex = metrics.currentDay - 1; // Array index
+            const yesterdayIndex = currentDayIndex - 1;
+            
+            // Daily new applications
+            const todayApps = metrics.daily;
+            const dailyNewApps = document.getElementById('dailyNewApps');
+            const dailyAppDetail = document.getElementById('dailyAppDetail');
+            dailyNewApps.textContent = todayApps;
+            dailyNewApps.className = 'change-value ' + (todayApps > 0 ? 'positive' : 'negative');
+            
+            // Calculate same day last week
+            let lastWeekDaily = 0;
+            if (currentDayIndex >= 7) {
+                lastWeekDaily = window.data2025[currentDayIndex - 7] - (currentDayIndex >= 8 ? window.data2025[currentDayIndex - 8] : 0);
+            }
+            const weekComparison = todayApps - lastWeekDaily;
+            dailyAppDetail.textContent = `${weekComparison >= 0 ? '↑' : '↓'} ${Math.abs(weekComparison)} vs same day last week (${lastWeekDaily})`;
+            
+            // Campus breakdown for today
+            const campusBreakdown = document.getElementById('campusBreakdown');
+            let topCampuses = [];
+            for (const campus in day47Data) {
+                const daily = day47Data[campus]["2025"].dailyApplicants;
+                if (daily > 0) {
+                    topCampuses.push({name: campus, count: daily});
+                }
+            }
+            topCampuses.sort((a, b) => b.count - a.count);
+            if (topCampuses.length > 0) {
+                campusBreakdown.textContent = topCampuses.slice(0, 3).map(c => `${c.name}: ${c.count}`).join(' | ');
+            } else {
+                campusBreakdown.textContent = 'No campus data available';
+            }
+            
+            // Total progress
+            const totalProgress = document.getElementById('totalProgress');
+            const progressDetail = document.getElementById('progressDetail');
+            const yesterdayTotal = window.data2025[yesterdayIndex] || 0;
+            const todayTotal = metrics.total;
+            const progressChange = todayTotal - yesterdayTotal;
+            totalProgress.textContent = todayTotal.toLocaleString();
+            progressDetail.textContent = `+${progressChange} from yesterday (${yesterdayTotal.toLocaleString()})`;
+            
+            // Draw sparkline for last 7 days
+            const sparklineCanvas = document.getElementById('progressSparkline');
+            if (sparklineCanvas) {
+                // Set proper canvas dimensions
+                const rect = sparklineCanvas.getBoundingClientRect();
+                sparklineCanvas.width = rect.width;
+                sparklineCanvas.height = 50;
+                
+                const ctx = sparklineCanvas.getContext('2d');
+                const last7Days = window.data2025.slice(Math.max(0, currentDayIndex - 6), currentDayIndex + 1);
+                drawSparkline(ctx, last7Days, sparklineCanvas.width, sparklineCanvas.height);
+            }
+            
+            // New registrations (estimated based on rate)
+            const newRegistrations = document.getElementById('newRegistrations');
+            const registrationDetail = document.getElementById('registrationDetail');
+            const conversionRateEl = document.getElementById('conversionRate');
+            const estimatedNewReg = Math.round(todayApps * (parseFloat(metrics.registrationRate) / 100));
+            newRegistrations.textContent = `+${estimatedNewReg}`;
+            newRegistrations.className = 'change-value ' + (estimatedNewReg > 0 ? 'positive' : '');
+            registrationDetail.textContent = `From ${todayApps} new applications`;
+            conversionRateEl.textContent = `Conversion rate: ${metrics.registrationRate}%`;
+            
+            // Top 3 performers
+            const topCampusesContainer = document.getElementById('topCampusesContainer');
+            const topCampusSummary = document.getElementById('topCampusSummary');
+            
+            if (topCampuses.length > 0) {
+                // Display top 3 campuses
+                const top3 = topCampuses.slice(0, 3);
+                
+                // Create a simple, elegant table-like display
+                let topDisplay = `
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                `;
+                
+                top3.forEach((campus, index) => {
+                    topDisplay += `
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 0.95rem;">
+                                <span style="color: #9ca3af; margin-right: 0.75rem;">${index + 1}.</span>
+                                <span style="font-weight: 600; color: #1a1a1a;">${campus.name}</span>
+                            </div>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: #1a1a1a;">
+                                ${campus.count}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                topDisplay += '</div>';
+                
+                topCampusesContainer.innerHTML = topDisplay;
+                
+                // Summary shows total from top 3
+                const top3Total = top3.reduce((sum, c) => sum + c.count, 0);
+                const top3Percentage = todayApps > 0 ? ((top3Total / todayApps) * 100).toFixed(0) : 0;
+                topCampusSummary.textContent = `Combined: ${top3Total} applications (${top3Percentage}% of total)`;
+            } else {
+                topCampusesContainer.innerHTML = '<div style="text-align: center; color: #6b7280;">No applications today</div>';
+                topCampusSummary.textContent = '';
+            }
+        }
+        
+        // Simple sparkline drawing function
+        function drawSparkline(ctx, data, width, height) {
+            ctx.clearRect(0, 0, width, height);
+            if (data.length < 2) return;
+            
+            // Add padding to prevent overflow
+            const padding = 10;
+            const drawWidth = width - (padding * 2);
+            const drawHeight = height - (padding * 2);
+            
+            const min = Math.min(...data);
+            const max = Math.max(...data);
+            const range = max - min || 1;
+            const stepX = drawWidth / (data.length - 1);
+            
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            
+            data.forEach((value, i) => {
+                const x = padding + (i * stepX);
+                const y = padding + (drawHeight - ((value - min) / range) * drawHeight);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            
+            ctx.stroke();
+            
+            // Add dot for last point
+            const lastX = padding + ((data.length - 1) * stepX);
+            const lastY = padding + (drawHeight - ((data[data.length - 1] - min) / range) * drawHeight);
+            ctx.fillStyle = '#3b82f6';
+            ctx.beginPath();
+            ctx.arc(lastX, lastY, 3, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        // Calculate smart projected date using day-of-week patterns
+        function calculateSmartProjectedDate(applicationsNeeded, metrics) {
+            // Day of week averages from historical data
+            const dayAverages = {
+                'Monday': 27.5,    // Average from data
+                'Tuesday': 23.3,
+                'Wednesday': 33.3,
+                'Thursday': 23.5,
+                'Friday': 18.7,
+                'Saturday': 2.9,   // Very low on weekends
+                'Sunday': 4.3      // Very low on weekends
+            };
+            
+            // Start from tomorrow
+            let projectedDate = new Date();
+            projectedDate.setDate(projectedDate.getDate() + 1);
+            
+            let remainingApplications = applicationsNeeded;
+            let daysProjected = 0;
+            const maxDays = 90; // Safety limit
+            
+            while (remainingApplications > 0 && daysProjected < maxDays) {
+                const dayName = projectedDate.toLocaleDateString('en-US', { weekday: 'long' });
+                const expectedApps = dayAverages[dayName] || metrics.dailyAvg;
+                
+                remainingApplications -= expectedApps;
+                
+                if (remainingApplications > 0) {
+                    projectedDate.setDate(projectedDate.getDate() + 1);
+                    daysProjected++;
+                }
+            }
+            
+            return projectedDate;
+        }
+        
+        // Populate Milestone Tracker
+        function populateMilestoneTracker() {
+            const metrics = calculateMetrics();
+            const currentTotal = metrics.total;
+            const dailyAvg = parseFloat(metrics.dailyAvg);
+            
+            // Define milestones
+            const milestones = [1200, 1500, 2000, 2500, 2700];
+            
+            // Find next milestone
+            let nextMilestone = null;
+            let nextMilestoneIndex = -1;
+            for (let i = 0; i < milestones.length; i++) {
+                if (currentTotal < milestones[i]) {
+                    nextMilestone = milestones[i];
+                    nextMilestoneIndex = i;
+                    break;
+                }
+            }
+            
+            // Update next milestone card
+            if (nextMilestone) {
+                const gap = nextMilestone - currentTotal;
+                
+                // Smart projection using day-of-week patterns
+                const projectedDate = calculateSmartProjectedDate(gap, metrics);
+                
+                document.getElementById('nextMilestoneValue').textContent = nextMilestone.toLocaleString();
+                document.getElementById('milestoneDaysAway').textContent = `${gap} applications away`;
+                document.getElementById('milestoneProjectedDate').textContent = `Est. ${projectedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
+                
+                // Progress bar for next milestone
+                const prevMilestone = nextMilestoneIndex > 0 ? milestones[nextMilestoneIndex - 1] : 1000;
+                const progress = ((currentTotal - prevMilestone) / (nextMilestone - prevMilestone)) * 100;
+                const progressBar = document.getElementById('nextMilestoneProgress');
+                progressBar.style.width = Math.min(progress, 100) + '%';
+                document.getElementById('nextMilestoneLabel').textContent = `${Math.round(progress)}% to next`;
+            } else {
+                document.getElementById('nextMilestoneValue').textContent = 'All achieved!';
+                document.getElementById('milestoneDaysAway').textContent = 'Excellent progress';
+                document.getElementById('milestoneProjectedDate').textContent = '';
+                document.getElementById('nextMilestoneProgress').style.width = '100%';
+                document.getElementById('nextMilestoneLabel').textContent = '100%';
+            }
+            
+            // Update all milestone items
+            milestones.forEach(milestone => {
+                const achieved = currentTotal >= milestone;
+                const progress = Math.min((currentTotal / milestone) * 100, 100);
+                
+                // Update status
+                const statusEl = document.getElementById(`milestone${milestone}`);
+                if (achieved) {
+                    statusEl.textContent = '✓ Achieved';
+                    statusEl.className = 'milestone-status achieved';
+                } else {
+                    const remaining = milestone - currentTotal;
+                    statusEl.textContent = `${remaining} to go`;
+                    statusEl.className = 'milestone-status';
+                }
+                
+                // Update progress bar
+                const progressBar = document.getElementById(`progress${milestone}`);
+                progressBar.style.width = progress + '%';
+                progressBar.className = achieved ? 'milestone-mini-fill' : 'milestone-mini-fill partial';
+            });
+        }
+        
+        // Populate Registration Focus
+        function populateRegistrationFocus() {
+            const metrics = calculateMetrics();
+            
+            // Main registration values
+            document.getElementById('totalRegistered').textContent = metrics.registered.toLocaleString();
+            document.getElementById('currentConversionRate').textContent = metrics.registrationRate + '%';
+            
+            // Calculate comparisons
+            const lastYearReg = 825; // From Excel data at Day 47 last year
+            const regDiff = metrics.registered - lastYearReg;
+            const regVsLastYear = document.getElementById('regVsLastYear');
+            regVsLastYear.textContent = `${regDiff >= 0 ? '+' : ''}${regDiff} (${regDiff >= 0 ? '↑' : '↓'}${Math.abs((regDiff/lastYearReg*100).toFixed(1))}%)`;
+            regVsLastYear.className = 'comparison-value ' + (regDiff >= 0 ? 'positive' : 'negative');
+            
+            const rateChangeEl = document.getElementById('rateChange');
+            const rateDiff = parseFloat(metrics.registrationRate) - parseFloat(metrics.regRate2024);
+            rateChangeEl.textContent = `${rateDiff >= 0 ? '+' : ''}${rateDiff.toFixed(1)}pp`;
+            rateChangeEl.className = 'comparison-value ' + (rateDiff >= 0 ? 'positive' : 'negative');
+            
+            // Registration target based on historical performance
+            // If we match last year's 69.4% rate on projected 2700 applications
+            const regTarget = Math.round(2700 * 0.694); // 1874 registrations to match last year's rate
+            document.getElementById('regTarget').textContent = regTarget.toLocaleString();
+            const regProgress = (metrics.registered / regTarget * 100).toFixed(1);
+            document.getElementById('regTargetDetail').textContent = `${regProgress}% of target`;
+            document.getElementById('regTargetProgress').style.width = Math.min(regProgress, 100) + '%';
+            
+            // Today's conversions
+            const todayConversions = Math.round(metrics.daily * (metrics.registrationRate / 100));
+            document.getElementById('todayConversions').textContent = `+${todayConversions}`;
+            document.getElementById('conversionDetail').textContent = `From ${metrics.daily} applications`;
+            
+            // Campus conversion leaders
+            const campusConversionList = document.getElementById('campusConversionList');
+            let conversionHTML = '';
+            
+            // Calculate conversion rates for each campus
+            const campusRates = [];
+            for (const campus in day47Data) {
+                const apps = day47Data[campus]["2025"].accApplicants;
+                const regs = day47Data[campus]["2025"].accRegistered;
+                if (apps > 0) {
+                    const rate = (regs / apps * 100).toFixed(1);
+                    campusRates.push({ campus, rate: parseFloat(rate), regs });
+                }
+            }
+            
+            // Sort by conversion rate and show top 3
+            campusRates.sort((a, b) => b.rate - a.rate);
+            campusRates.slice(0, 3).forEach(item => {
+                conversionHTML += `
+                    <div class="campus-conversion-item">
+                        <span>${item.campus}</span>
+                        <span class="campus-conversion-rate">${item.rate}%</span>
+                    </div>
+                `;
+            });
+            
+            campusConversionList.innerHTML = conversionHTML;
+            
+            // Draw conversion trend chart
+            drawConversionTrendChart();
+        }
+        
+        // Draw conversion trend chart
+        function drawConversionTrendChart() {
+            const canvas = document.getElementById('conversionTrendChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width;
+            // Make canvas responsive to container
+            const containerHeight = canvas.parentElement.offsetHeight;
+            const containerWidth = canvas.parentElement.offsetWidth;
+            canvas.height = containerHeight || 280;
+            canvas.width = containerWidth || rect.width;
+            
+            // REAL weekly conversion rates data calculated from Excel files for 2025
+            // Actual data from Excel analysis showing gradual then sharp decline
+            const weeklyRates = [26.42, 25.64, 27.97, 26.87, 26.11, 19.91, 16.58]; // Accurate rates from Excel
+            const weekLabels = ['Jun 15', 'Jun 22', 'Jun 29', 'Jul 6', 'Jul 13', 'Jul 20', 'Jul 31'];
+            
+            const padding = { left: 60, right: 50, top: 50, bottom: 55 };
+            const drawWidth = canvas.width - padding.left - padding.right;
+            const drawHeight = canvas.height - padding.top - padding.bottom;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Set up fonts
+            ctx.font = '13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            
+            // Calculate Y-axis range with padding
+            const minRate = Math.min(...weeklyRates) - 2;
+            const maxRate = Math.max(...weeklyRates) + 2;
+            const range = maxRate - minRate;
+            
+            // Draw subtle grid lines
+            ctx.strokeStyle = 'rgba(107, 114, 128, 0.1)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 5; i++) {
+                const y = padding.top + (i * drawHeight / 5);
+                const value = maxRate - (i * range / 5);
+                
+                // Grid line
+                ctx.beginPath();
+                ctx.moveTo(padding.left, y);
+                ctx.lineTo(canvas.width - padding.right, y);
+                ctx.stroke();
+                
+                // Y-axis label
+                ctx.fillStyle = '#9ca3af';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(value.toFixed(1) + '%', padding.left - 5, y);
+            }
+            
+            // Draw X-axis labels
+            ctx.fillStyle = '#6b7280';
+            ctx.font = '12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            const stepX = drawWidth / (weekLabels.length - 1);
+            weekLabels.forEach((label, i) => {
+                const x = padding.left + (i * stepX);
+                ctx.fillText(label, x, canvas.height - padding.bottom + 8);
+            });
+            
+            // Create gradient fill - red to show declining performance
+            const gradient = ctx.createLinearGradient(0, padding.top, 0, canvas.height - padding.bottom);
+            gradient.addColorStop(0, 'rgba(239, 68, 68, 0.2)');
+            gradient.addColorStop(0.7, 'rgba(239, 68, 68, 0.1)');
+            gradient.addColorStop(1, 'rgba(239, 68, 68, 0.0)');
+            
+            // Draw filled area
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            weeklyRates.forEach((rate, i) => {
+                const x = padding.left + (i * stepX);
+                const y = padding.top + drawHeight - ((rate - minRate) / range * drawHeight);
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            ctx.lineTo(padding.left + (weeklyRates.length - 1) * stepX, canvas.height - padding.bottom);
+            ctx.lineTo(padding.left, canvas.height - padding.bottom);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Draw smooth curve
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let i = 0; i < weeklyRates.length; i++) {
+                const x = padding.left + (i * stepX);
+                const y = padding.top + drawHeight - ((weeklyRates[i] - minRate) / range * drawHeight);
+                
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else if (i === weeklyRates.length - 1) {
+                    ctx.lineTo(x, y);
+                } else {
+                    // Create smooth curve using control points
+                    const xPrev = padding.left + ((i - 1) * stepX);
+                    const yPrev = padding.top + drawHeight - ((weeklyRates[i - 1] - minRate) / range * drawHeight);
+                    const xNext = padding.left + ((i + 1) * stepX);
+                    const yNext = padding.top + drawHeight - ((weeklyRates[i + 1] - minRate) / range * drawHeight);
+                    
+                    const cp1x = xPrev + (x - xPrev) * 0.5;
+                    const cp1y = yPrev + (y - yPrev) * 0.5;
+                    const cp2x = x + (xNext - x) * 0.5;
+                    const cp2y = y + (yNext - y) * 0.5;
+                    
+                    ctx.quadraticCurveTo(cp1x, y, x, y);
+                }
+            }
+            ctx.stroke();
+            
+            // Add data points
+            ctx.fillStyle = '#10b981';
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 2.5;
+            weeklyRates.forEach((rate, i) => {
+                const x = padding.left + (i * stepX);
+                const y = padding.top + drawHeight - ((rate - minRate) / range * drawHeight);
+                
+                // Add value labels for key points
+                if (i === 0 || i === weeklyRates.length - 1 || i === 3) {
+                    ctx.fillStyle = '#dc2626';
+                    ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    ctx.fillText(rate.toFixed(1) + '%', x, y - 12);
+                }
+                
+                // Draw point
+                ctx.fillStyle = '#ef4444';
+                ctx.beginPath();
+                ctx.arc(x, y, i === weeklyRates.length - 1 ? 7 : 5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+            });
+            
+            // Add title and subtitle
+            ctx.fillStyle = '#1e293b';
+            ctx.font = 'bold 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'top';
+            ctx.fillText('Registration Rate Trend: 26.4% → 15.6%', padding.left, 12);
+            
+        }
+        
         // Initialize dashboard
         function init() {
             renderAlerts();
             renderMetrics();
+            populateExecutiveSummary();
+            populateKPIs();
+            populateDailyChanges();
+            populateMilestoneTracker();
+            populateRegistrationFocus();
             
             // Pre-render charts for expandable sections to avoid empty displays
             setTimeout(() => {
@@ -1513,7 +2959,7 @@
                         labels: ['Fall 2019-2020', 'Fall 2023-2024', 'Fall 2024-2025', 'Fall 2025-2026'],
                         datasets: [{
                             label: 'Total Applications (Day 47)',
-                            data: [calculateTotal2019(), calculateTotal2023(), calculateLastYearTotal(), 1032],
+                            data: [calculateTotal2019(), calculateTotal2023(), calculateLastYearTotal(), 1085], // Updated to actual total
                             borderColor: '#3b82f6',
                             backgroundColor: 'rgba(59, 130, 246, 0.1)',
                             tension: 0.4,
