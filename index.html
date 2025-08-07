@@ -341,11 +341,12 @@
         
         .progress-label {
             color: white !important;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.125rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
             z-index: 1;
             position: relative;
+            letter-spacing: 0.5px;
         }
         
         .cycle-dates {
@@ -652,16 +653,7 @@
             transition: width 0.5s ease;
         }
         
-        .milestone-progress-label {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
+        /* Milestone progress label removed - now displayed above bar */
         
         .all-milestones {
             display: grid;
@@ -2448,9 +2440,9 @@
                     <div class="summary-content">
                         <div class="summary-label">Target Achievement</div>
                         <div class="summary-main">
-                            <div class="summary-value warning" id="targetAchievement">55.6%</div>
+                            <div class="summary-value negative" id="targetAchievement">20.0%</div>
                             <div class="summary-detail">
-                                <span id="targetDetail">1,501 of 2,700 target</span>
+                                <span id="targetDetail">1,683 of 8,424 target</span>
                             </div>
                         </div>
                     </div>
@@ -2459,9 +2451,9 @@
                     <div class="summary-content">
                         <div class="summary-label">Projected Total</div>
                         <div class="summary-main">
-                            <div class="summary-value negative" id="projectedTotal">4,013</div>
+                            <div class="summary-value negative" id="projectedTotal">4,414</div>
                             <div class="summary-detail">
-                                <span id="projectedDetail">1,313 above target</span>
+                                <span id="projectedDetail">4,010 below target</span>
                             </div>
                         </div>
                     </div>
@@ -2481,9 +2473,9 @@
                     <div class="summary-content">
                         <div class="summary-label">Required Daily Rate</div>
                         <div class="summary-main">
-                            <div class="summary-value neutral" id="requiredRate">16.2</div>
+                            <div class="summary-value neutral" id="requiredRate">110.5</div>
                             <div class="summary-detail">
-                                <span id="currentRate">Current: 25.7/day</span>
+                                <span id="currentRate">Current: 31.8/business day</span>
                             </div>
                         </div>
                     </div>
@@ -2496,9 +2488,9 @@
                     <div class="summary-content">
                         <div class="summary-label">Target Achievement</div>
                         <div class="summary-main">
-                            <div class="summary-value negative" id="regTargetAchievement">15.9%</div>
+                            <div class="summary-value negative" id="regTargetAchievement">4.2%</div>
                             <div class="summary-detail">
-                                <span id="regTargetDetail">227 of 1,231 target</span>
+                                <span id="regTargetDetail">256 of 6,155 target</span>
                             </div>
                         </div>
                     </div>
@@ -2507,9 +2499,9 @@
                     <div class="summary-content">
                         <div class="summary-label">Projected Total</div>
                         <div class="summary-main">
-                            <div class="summary-value negative" id="regProjectedTotal">534</div>
+                            <div class="summary-value negative" id="regProjectedTotal">671</div>
                             <div class="summary-detail">
-                                <span id="regProjectedDetail">697 below target</span>
+                                <span id="regProjectedDetail">5,484 below target</span>
                             </div>
                         </div>
                     </div>
@@ -2529,9 +2521,9 @@
                     <div class="summary-content">
                         <div class="summary-label">Required Daily Rate</div>
                         <div class="summary-main">
-                            <div class="summary-value neutral" id="regRequiredRate">11.0</div>
+                            <div class="summary-value neutral" id="regRequiredRate">96.7</div>
                             <div class="summary-detail">
-                                <span id="regCurrentRate">Current: 3.8/day</span>
+                                <span id="regCurrentRate">Current: 4.8/business day</span>
                             </div>
                         </div>
                     </div>
@@ -2550,11 +2542,11 @@
                     </div>
                     <div class="cycle-stat">
                         <div class="cycle-stat-value">38.1%</div>
-                        <div class="cycle-stat-label">Complete</div>
+                        <div class="cycle-stat-label">Complete<br><span style="font-size: 0.75rem; color: #9ca3af; font-weight: 500;">(39.0% business days)</span></div>
                     </div>
                     <div class="cycle-stat">
                         <div class="cycle-stat-value">86</div>
-                        <div class="cycle-stat-label">Days Remaining</div>
+                        <div class="cycle-stat-label">Days Remaining<br><span style="font-size: 0.75rem; color: #9ca3af; font-weight: 500;">(61 business days)</span></div>
                     </div>
                     <div class="cycle-stat">
                         <div class="cycle-stat-value">139</div>
@@ -2563,9 +2555,9 @@
                 </div>
             </div>
             <div class="progress-visual">
+                <div style="text-align: center; margin-bottom: 0.75rem; font-weight: 700; font-size: 1.125rem; color: #1f2937;">38.1% Complete</div>
                 <div class="progress-bar-container">
                     <div class="progress-bar-fill" style="width: 38.1%">
-                        <span class="progress-label">38.1% Complete</span>
                     </div>
                 </div>
             </div>
@@ -2651,16 +2643,16 @@
                 <div class="next-milestone-card">
                     <div class="milestone-header">
                         <span class="milestone-label">Next Milestone</span>
-                        <span class="milestone-value" id="nextMilestoneValue">2,000</span>
+                        <span class="milestone-value" id="nextMilestoneValue">2,700</span>
                     </div>
                     <div class="milestone-detail">
-                        <span id="milestoneDaysAway">~30 days away</span>
+                        <span id="milestoneDaysAway">~24 business days away</span>
                         <span class="milestone-separator">•</span>
-                        <span id="milestoneProjectedDate">Projected: Sep 4</span>
+                        <span id="milestoneProjectedDate">Projected: Sep 9</span>
                     </div>
+                    <div style="text-align: center; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.875rem; color: #1e40af;">62.3% to 2,700</div>
                     <div class="milestone-progress-bar">
-                        <div class="milestone-progress-fill" id="nextMilestoneProgress" style="width: 38.1%"></div>
-                        <span class="milestone-progress-label" id="nextMilestoneLabel">84.2% to 2,000</span>
+                        <div class="milestone-progress-fill" id="nextMilestoneProgress" style="width: 62.3%"></div>
                     </div>
                 </div>
                 <div class="all-milestones">
@@ -2676,22 +2668,22 @@
                             <span class="milestone-status achieved" id="milestone1500">✓ Achieved</span>
                         </div>
                     </div>
-                    <div class="milestone-item" data-target="2000">
+                    <div class="milestone-item" data-target="2700">
                         <div class="milestone-item-header">
-                            <span>2,000</span>
-                            <span class="milestone-status" id="milestone2000">Pending</span>
+                            <span>2,700</span>
+                            <span class="milestone-status" id="milestone2700">Pending</span>
                         </div>
                     </div>
-                    <div class="milestone-item" data-target="2500">
+                    <div class="milestone-item" data-target="5000">
                         <div class="milestone-item-header">
-                            <span>2,500</span>
-                            <span class="milestone-status" id="milestone2500">Pending</span>
+                            <span>5,000</span>
+                            <span class="milestone-status" id="milestone5000">Pending</span>
                         </div>
                     </div>
-                    <div class="milestone-item final" data-target="2700">
+                    <div class="milestone-item final" data-target="8424">
                         <div class="milestone-item-header">
-                            <span>2,700 🎯</span>
-                            <span class="milestone-status" id="milestone2700">Target</span>
+                            <span>8,424 🎯</span>
+                            <span class="milestone-status" id="milestone8424">Target</span>
                         </div>
                     </div>
                 </div>
@@ -2719,8 +2711,8 @@
                 </div>
                 <div class="summary-card">
                     <div class="summary-label">Registration Target</div>
-                    <div class="summary-value warning">856</div>
-                    <div class="summary-detail">600 more needed (29.9% achieved)</div>
+                    <div class="summary-value negative">6,155</div>
+                    <div class="summary-detail">5,899 more needed (4.2% achieved)</div>
                 </div>
             </div>
         </div>
@@ -2747,23 +2739,23 @@
                     <div class="kpi-content">
                         <div class="kpi-label">Conversion Quality</div>
                         <div class="kpi-value" id="conversionQuality">15.2%</div>
-                        <div class="kpi-trend negative" id="conversionTrend">vs 60.3% last year</div>
+                        <div class="kpi-trend negative" id="conversionTrend">vs 71.5% last year</div>
                     </div>
                 </div>
                 <div class="kpi-card">
                     <div class="kpi-icon">🏛️</div>
                     <div class="kpi-content">
                         <div class="kpi-label">Campus Health Score</div>
-                        <div class="kpi-value" id="campusHealth">3/7</div>
-                        <div class="kpi-trend negative" id="campusTrend">4 campuses underperforming</div>
+                        <div class="kpi-value" id="campusHealth">0/7</div>
+                        <div class="kpi-trend negative" id="campusTrend">All 7 campuses underperforming</div>
                     </div>
                 </div>
                 <div class="kpi-card">
                     <div class="kpi-icon">📈</div>
                     <div class="kpi-content">
                         <div class="kpi-label">Pace to Target</div>
-                        <div class="kpi-value" id="paceToTarget">148.5%</div>
-                        <div class="kpi-trend positive" id="paceTrend">708 applications above target pace</div>
+                        <div class="kpi-value" id="paceToTarget">52.4%</div>
+                        <div class="kpi-trend negative" id="paceTrend">1,529 applications below target pace</div>
                     </div>
                 </div>
             </div>
@@ -2781,22 +2773,22 @@
                 <div class="alert-item">
                     <div class="alert-indicator info"></div>
                     <div class="alert-content">
-                        <div class="alert-message">Registration rate decreased by 45.1 percentage points</div>
-                        <div class="alert-detail">Current: 15.2% vs Last Year: 60.3%</div>
+                        <div class="alert-message">Registration rate decreased by 56.3 percentage points</div>
+                        <div class="alert-detail">Current: 15.2% vs Last Year: 71.5%</div>
                     </div>
                 </div>
                 <div class="alert-item">
                     <div class="alert-indicator warning"></div>
                     <div class="alert-content">
-                        <div class="alert-message">Projected surplus of 1,718 applications</div>
-                        <div class="alert-detail">Current trajectory: 4,418 vs Target: 2,700</div>
+                        <div class="alert-message">Projected shortfall of 3,977 applications</div>
+                        <div class="alert-detail">Current trajectory: 4,418 vs Target: 8,424</div>
                     </div>
                 </div>
                 <div class="alert-item">
                     <div class="alert-indicator info"></div>
                     <div class="alert-content">
-                        <div class="alert-message">759 additional registrations needed to match last year's rate</div>
-                        <div class="alert-detail">Must convert 60.3% of remaining 1,427 applicants</div>
+                        <div class="alert-message">5,899 additional registrations needed to match historical average</div>
+                        <div class="alert-detail">Must achieve 96.7 registrations per business day for remaining 61 business days</div>
                     </div>
                 </div>
             </div>
@@ -3121,7 +3113,7 @@
                             <td>959</td>
                             <td>192</td>
                             <td>20.0%</td>
-                            <td class="negative">-17.7%</td>
+                            <td class="negative">-13.4%</td>
                             <td>57.0%</td>
                         </tr>
                         <tr>
@@ -3129,7 +3121,7 @@
                             <td>235</td>
                             <td>17</td>
                             <td>7.2%</td>
-                            <td class="positive">+28.5%</td>
+                            <td class="negative">-32.5%</td>
                             <td>14.0%</td>
                         </tr>
                         <tr>
@@ -3137,7 +3129,7 @@
                             <td>81</td>
                             <td>28</td>
                             <td>34.6%</td>
-                            <td class="positive">+14.1%</td>
+                            <td class="negative">-36.2%</td>
                             <td>4.8%</td>
                         </tr>
                         <tr>
@@ -3145,7 +3137,7 @@
                             <td>122</td>
                             <td>5</td>
                             <td>4.1%</td>
-                            <td class="positive">+28.4%</td>
+                            <td class="negative">-27.8%</td>
                             <td>7.2%</td>
                         </tr>
                         <tr>
@@ -3153,7 +3145,7 @@
                             <td>108</td>
                             <td>3</td>
                             <td>2.8%</td>
-                            <td class="positive">+66.2%</td>
+                            <td class="negative">-39.7%</td>
                             <td>6.4%</td>
                         </tr>
                         <tr>
@@ -3161,7 +3153,7 @@
                             <td>122</td>
                             <td>0</td>
                             <td>0.0%</td>
-                            <td class="positive">+144.0%</td>
+                            <td class="negative">-17.6%</td>
                             <td>7.2%</td>
                         </tr>
                         <tr>
@@ -3169,7 +3161,7 @@
                             <td>56</td>
                             <td>11</td>
                             <td>19.6%</td>
-                            <td class="positive">+9.8%</td>
+                            <td class="negative">-9.7%</td>
                             <td>3.3%</td>
                         </tr>
                         <tr class="total-row">
@@ -3251,8 +3243,9 @@
             total: 0,
             registered: 0,
             daily: 0,
-            target: 2700,
+            target: 8424,
             daysRemaining: 86,
+            businessDaysRemaining: 61,
             registrationRate: 0,
             changeVs2024: 0,
             changeVs2023: 0,
@@ -3513,7 +3506,7 @@
         function calculateMetrics() {
             // Target calculations
             const targetAchievement = (localMetrics.total / localMetrics.target * 100).toFixed(1);
-            const projectedTotal = Math.round(localMetrics.total / 0.374); // 37.4% through cycle
+            const projectedTotal = Math.round(localMetrics.total / 0.381); // 38.1% through cycle (Day 53 of 139)
             const gapToTarget = localMetrics.target - projectedTotal;
             
             // Update DOM
@@ -3526,9 +3519,24 @@
             document.getElementById('yoyPerformance').textContent = localMetrics.changeVs2024 + '%';
             document.getElementById('yoyDetail').textContent = `vs ${lastYearTotal.toLocaleString()} last year`;
             
-            const requiredRate = ((localMetrics.target - localMetrics.total) / localMetrics.daysRemaining).toFixed(1);
+            const requiredRate = ((localMetrics.target - localMetrics.total) / localMetrics.businessDaysRemaining).toFixed(1);
             document.getElementById('requiredRate').textContent = requiredRate;
-            document.getElementById('currentRate').textContent = `Current: ${(localMetrics.total / currentDay).toFixed(1)}/day`;
+            document.getElementById('currentRate').textContent = `Current: ${(localMetrics.total / 39).toFixed(1)}/business day`; // 39 business days elapsed
+            
+            // Update registration metrics
+            const regTarget = 6155; // Historical average
+            const regTargetAchievement = (localMetrics.registered / regTarget * 100).toFixed(1);
+            const regProjectedTotal = Math.round(localMetrics.registered / 0.381);
+            const regGapToTarget = regTarget - regProjectedTotal;
+            const regRequiredRate = ((regTarget - localMetrics.registered) / localMetrics.businessDaysRemaining).toFixed(1);
+            
+            // Update registration DOM elements
+            document.getElementById('regTargetAchievement').textContent = regTargetAchievement + '%';
+            document.getElementById('regTargetDetail').textContent = `${localMetrics.registered} of ${regTarget.toLocaleString()} target`;
+            document.getElementById('regProjectedTotal').textContent = regProjectedTotal.toLocaleString();
+            document.getElementById('regProjectedDetail').textContent = Math.abs(regGapToTarget).toLocaleString() + (regGapToTarget < 0 ? ' above target' : ' below target');
+            document.getElementById('regRequiredRate').textContent = regRequiredRate;
+            document.getElementById('regCurrentRate').textContent = `Current: ${(localMetrics.registered / 39).toFixed(1)}/business day`; // 39 business days elapsed
         }
         
         // Render all metrics
