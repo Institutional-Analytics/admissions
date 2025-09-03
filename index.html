@@ -1154,6 +1154,163 @@
             margin: 2rem 0;
         }
         
+        /* Historical Comparison Sections */
+        .historical-comparison-section {
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            border: 1px solid #e5e7eb;
+            width: 95%;
+        }
+        
+        .historical-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #111827;
+            text-align: center;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+        
+        .historical-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .year-bars-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .year-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .year-label {
+            font-weight: 600;
+            color: #374151;
+            min-width: 100px;
+            font-size: 0.95rem;
+        }
+        
+        .year-bar-wrapper {
+            flex: 1;
+            position: relative;
+        }
+        
+        .year-bar-bg {
+            height: 36px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .year-bar-fill {
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: width 0.6s ease;
+        }
+        
+        .year-bar-fill.current-year {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            position: relative;
+        }
+        
+        .year-bar-fill.current-year::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #1e40af;
+            animation: pulse 2s infinite;
+        }
+        
+        .year-bar-fill.past-year-2024 {
+            background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+        }
+        
+        .year-bar-fill.past-year-2023 {
+            background: linear-gradient(90deg, #ec4899, #f472b6);
+        }
+        
+        .year-bar-fill.past-year-2019 {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+        
+        .comparison-stats {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .stat-detail {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 0.25rem;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
         /* Utility Classes */
         .text-positive { color: #10b981; }
         .text-negative { color: #ef4444; }
@@ -2692,6 +2849,156 @@
         
         <div class="section-divider"></div>
         
+        <!-- Application Historical Comparison -->
+        <div class="historical-comparison-section">
+            <h2 class="historical-title">Application Trends - Historical Comparison</h2>
+            <div class="comparison-grid">
+                <div class="comparison-stats">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">Current Progress</div>
+                            <div class="stat-value">4,231</div>
+                            <div class="stat-detail">Day 80 of 139</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Projected Total</div>
+                            <div class="stat-value">7,346</div>
+                            <div class="stat-detail">At current pace</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">vs Best Year</div>
+                            <div class="stat-value text-negative">-23.5%</div>
+                            <div class="stat-detail">vs 2019 (9,600)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Cycle Complete</div>
+                            <div class="stat-value">57.6%</div>
+                            <div class="stat-detail">59 days left</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="year-bars-container">
+                    <div class="year-bar-item">
+                        <div class="year-label">2025 Current</div>
+                        <div class="year-bar-wrapper">
+                            <div class="year-bar-bg">
+                                <div class="year-bar-fill current-year" style="width: 44.1%;" id="apps-2025-bar">
+                                    4,231 (projected: 7,346)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="year-bar-item">
+                        <div class="year-label">2024 Final</div>
+                        <div class="year-bar-wrapper">
+                            <div class="year-bar-bg">
+                                <div class="year-bar-fill past-year-2024" style="width: 71.8%;">
+                                    6,889
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="year-bar-item">
+                        <div class="year-label">2023 Final</div>
+                        <div class="year-bar-wrapper">
+                            <div class="year-bar-bg">
+                                <div class="year-bar-fill past-year-2023" style="width: 91.4%;">
+                                    8,776
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="year-bar-item">
+                        <div class="year-label">2019 Final</div>
+                        <div class="year-bar-wrapper">
+                            <div class="year-bar-bg">
+                                <div class="year-bar-fill past-year-2019" style="width: 100%;">
+                                    9,600 (Best)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- Registration Historical Comparison -->
+        <div class="historical-comparison-section">
+            <h2 class="historical-title">Registration Trends - Historical Comparison</h2>
+            <div class="comparison-grid">
+                <div class="comparison-stats">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">Current Progress</div>
+                            <div class="stat-value">2,121</div>
+                            <div class="stat-detail">Day 80 of 139</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Projected Total</div>
+                            <div class="stat-value">3,682</div>
+                            <div class="stat-detail">At current pace</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">vs Best Year</div>
+                            <div class="stat-value text-negative">-49.5%</div>
+                            <div class="stat-detail">vs 2019 (7,292)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Conversion Rate</div>
+                            <div class="stat-value">50.1%</div>
+                            <div class="stat-detail">Current</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="year-bars-container">
+                    <div class="year-bar-item">
+                        <div class="year-label">2025 Current</div>
+                        <div class="year-bar-wrapper">
+                            <div class="year-bar-bg">
+                                <div class="year-bar-fill current-year" style="width: 29.1%;" id="regs-2025-bar">
+                                    2,121 (projected: 3,682)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="year-bar-item">
+                        <div class="year-label">2024 Final</div>
+                        <div class="year-bar-wrapper">
+                            <div class="year-bar-bg">
+                                <div class="year-bar-fill past-year-2024" style="width: 66.4%;">
+                                    4,842
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="year-bar-item">
+                        <div class="year-label">2023 Final</div>
+                        <div class="year-bar-wrapper">
+                            <div class="year-bar-bg">
+                                <div class="year-bar-fill past-year-2023" style="width: 86.8%;">
+                                    6,330
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="year-bar-item">
+                        <div class="year-label">2019 Final</div>
+                        <div class="year-bar-wrapper">
+                            <div class="year-bar-bg">
+                                <div class="year-bar-fill past-year-2019" style="width: 100%;">
+                                    7,292 (Best)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
         <!-- Registration Focus -->
         <div class="registration-focus-section">
             <div class="registration-title-container">
@@ -3037,19 +3344,19 @@
                         <div class="metric-group">
                             <h4>Registrations</h4>
                             <div class="current-value">93</div>
-                            <div class="registration-rate">Rate: 12.4%</div>
+                            <div class="registration-rate">Rate: 18.9%</div>
                             <div class="comparison-values">
                                 <div class="comparison-item">
                                     <span class="year">2024:</span>
-                                    <span class="rate">72.7%</span>
+                                    <span class="rate">72.2%</span>
                                 </div>
                                 <div class="comparison-item">
                                     <span class="year">2023:</span>
-                                    <span class="rate">59.9%</span>
+                                    <span class="rate">58.7%</span>
                                 </div>
                                 <div class="comparison-item">
                                     <span class="year">2019:</span>
-                                    <span class="rate">45.5%</span>
+                                    <span class="rate">54.5%</span>
                                 </div>
                             </div>
                         </div>
@@ -3232,6 +3539,240 @@
                 </table>
             </div>
         </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- Registration Conversion Rates by Campus -->
+        <div class="historical-comparison-section">
+            <h2 class="historical-title">Registration Conversion Rates by Campus (Day 80)</h2>
+            
+            <div style="margin-top: 2rem;">
+                <!-- Current Year Conversion Rates -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid #e5e7eb; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1.5rem;">2025 Current Conversion Rates (Ranked by Performance)</h3>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: #f3f4f6;">
+                                    <th style="padding: 0.75rem; text-align: left; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">Rank</th>
+                                    <th style="padding: 0.75rem; text-align: left; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">Campus</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">2025 Rate</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">Applications</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">Registrations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">1</td>
+                                    <td style="padding: 0.75rem; font-weight: 600; color: #374151;">Mount Lebanon</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #10b981; font-weight: 700;">66.7%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">168</td>
+                                    <td style="padding: 0.75rem; text-align: center;">112</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">2</td>
+                                    <td style="padding: 0.75rem; font-weight: 600; color: #374151;">Akkar</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #10b981; font-weight: 700;">59.9%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">142</td>
+                                    <td style="padding: 0.75rem; text-align: center;">85</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">3</td>
+                                    <td style="padding: 0.75rem; font-weight: 600; color: #374151;">Saida</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #10b981; font-weight: 700;">59.0%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">648</td>
+                                    <td style="padding: 0.75rem; text-align: center;">382</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">4</td>
+                                    <td style="padding: 0.75rem; font-weight: 600; color: #374151;">Tyre</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #10b981; font-weight: 700;">57.5%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">607</td>
+                                    <td style="padding: 0.75rem; text-align: center;">349</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">5</td>
+                                    <td style="padding: 0.75rem; font-weight: 600; color: #374151;">Nabatieh</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #f59e0b; font-weight: 700;">55.7%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">447</td>
+                                    <td style="padding: 0.75rem; text-align: center;">249</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">6</td>
+                                    <td style="padding: 0.75rem; font-weight: 600; color: #374151;">Beirut</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 700;">49.3%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">1,726</td>
+                                    <td style="padding: 0.75rem; text-align: center;">851</td>
+                                </tr>
+                                <tr style="border-bottom: 2px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">7</td>
+                                    <td style="padding: 0.75rem; font-weight: 600; color: #374151;">Tripoli</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #dc2626; font-weight: 700;">18.9% ⚠️</td>
+                                    <td style="padding: 0.75rem; text-align: center;">493</td>
+                                    <td style="padding: 0.75rem; text-align: center;">93</td>
+                                </tr>
+                                <tr style="background: #f9fafb; font-weight: 700;">
+                                    <td style="padding: 0.75rem;" colspan="2">Overall</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #2563eb;">50.1%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">4,231</td>
+                                    <td style="padding: 0.75rem; text-align: center;">2,121</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Year-over-Year Comparison Table -->
+                <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid #e5e7eb; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1.5rem;">Historical Conversion Rate Comparison (All Years)</h3>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+                            <thead>
+                                <tr style="background: #f3f4f6;">
+                                    <th style="padding: 0.75rem; text-align: left; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">Campus</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">2025</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">2024</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">vs 2024</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">2023</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">vs 2023</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">2019</th>
+                                    <th style="padding: 0.75rem; text-align: center; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb;">vs 2019</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">Mount Lebanon</td>
+                                    <td style="padding: 0.75rem; text-align: center; font-weight: 700;">66.7%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">78.8%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-12.1</td>
+                                    <td style="padding: 0.75rem; text-align: center;">72.6%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-5.9</td>
+                                    <td style="padding: 0.75rem; text-align: center;">73.3%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-6.6</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">Akkar</td>
+                                    <td style="padding: 0.75rem; text-align: center; font-weight: 700;">59.9%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">83.8%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-23.9</td>
+                                    <td style="padding: 0.75rem; text-align: center;">70.7%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-10.8</td>
+                                    <td style="padding: 0.75rem; text-align: center;">79.6%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-19.7</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">Saida</td>
+                                    <td style="padding: 0.75rem; text-align: center; font-weight: 700;">59.0%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">78.5%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-19.5</td>
+                                    <td style="padding: 0.75rem; text-align: center;">76.1%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-17.1</td>
+                                    <td style="padding: 0.75rem; text-align: center;">71.2%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-12.2</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">Tyre</td>
+                                    <td style="padding: 0.75rem; text-align: center; font-weight: 700;">57.5%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">71.6%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-14.1</td>
+                                    <td style="padding: 0.75rem; text-align: center;">81.1%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-23.6</td>
+                                    <td style="padding: 0.75rem; text-align: center;">82.3%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-24.8</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">Nabatieh</td>
+                                    <td style="padding: 0.75rem; text-align: center; font-weight: 700;">55.7%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">63.5%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-7.8</td>
+                                    <td style="padding: 0.75rem; text-align: center;">73.7%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-18.0</td>
+                                    <td style="padding: 0.75rem; text-align: center;">80.6%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-24.9</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">Beirut</td>
+                                    <td style="padding: 0.75rem; text-align: center; font-weight: 700;">49.3%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">69.5%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-20.2</td>
+                                    <td style="padding: 0.75rem; text-align: center;">67.8%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-18.5</td>
+                                    <td style="padding: 0.75rem; text-align: center;">65.7%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444; font-weight: 600;">-16.4</td>
+                                </tr>
+                                <tr style="border-bottom: 2px solid #e5e7eb;">
+                                    <td style="padding: 0.75rem; font-weight: 600;">Tripoli</td>
+                                    <td style="padding: 0.75rem; text-align: center; font-weight: 700; color: #dc2626;">18.9% ⚠️</td>
+                                    <td style="padding: 0.75rem; text-align: center;">72.2%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #dc2626; font-weight: 700;">-53.3</td>
+                                    <td style="padding: 0.75rem; text-align: center;">58.7%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #dc2626; font-weight: 700;">-39.8</td>
+                                    <td style="padding: 0.75rem; text-align: center;">54.5%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #dc2626; font-weight: 700;">-35.6</td>
+                                </tr>
+                                <tr style="background: #f9fafb; font-weight: 700;">
+                                    <td style="padding: 0.75rem;">Overall</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #2563eb;">50.1%</td>
+                                    <td style="padding: 0.75rem; text-align: center;">72.0%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444;">-21.9</td>
+                                    <td style="padding: 0.75rem; text-align: center;">70.3%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444;">-20.2</td>
+                                    <td style="padding: 0.75rem; text-align: center;">68.8%</td>
+                                    <td style="padding: 0.75rem; text-align: center; color: #ef4444;">-18.7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem;">
+                        * All percentages shown are conversion rates (Registrations / Applications) at Day 80 of the admissions cycle
+                    </div>
+                </div>
+                
+                <!-- Key Insights and Analysis -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid #e5e7eb;">
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">Critical Observations</h3>
+                        <div style="padding: 1rem; background: #fef2f2; border-radius: 8px; border: 1px solid #fecaca; margin-bottom: 1rem;">
+                            <div style="font-weight: 600; color: #991b1b; margin-bottom: 0.5rem;">Immediate Concerns:</div>
+                            <ul style="font-size: 0.875rem; color: #7f1d1d; margin: 0; padding-left: 1.25rem;">
+                                <li><strong>Tripoli</strong>: Catastrophic decline (-53.8 points vs 2024)</li>
+                                <li>All campuses underperforming vs all historical years</li>
+                                <li>Overall conversion down 21.9 points from 2024</li>
+                            </ul>
+                        </div>
+                        <div style="padding: 1rem; background: #fffbeb; border-radius: 8px; border: 1px solid #fde68a;">
+                            <div style="font-weight: 600; color: #92400e; margin-bottom: 0.5rem;">Relative Performers:</div>
+                            <ul style="font-size: 0.875rem; color: #78350f; margin: 0; padding-left: 1.25rem;">
+                                <li><strong>Mount Lebanon</strong>: Best rate at 66.7%</li>
+                                <li><strong>Nabatieh</strong>: Smallest decline vs 2024 (-7.7 points)</li>
+                                <li><strong>Akkar & Saida</strong>: Maintaining ~60% conversion</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid #e5e7eb;">
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">Historical Performance Trends</h3>
+                        <div style="background: #f0fdf4; padding: 1rem; border-radius: 8px; border: 1px solid #bbf7d0; margin-bottom: 1rem;">
+                            <div style="font-weight: 600; color: #166534; margin-bottom: 0.5rem;">Best Historical Rates:</div>
+                            <ul style="font-size: 0.875rem; color: #14532d; margin: 0; padding-left: 1.25rem;">
+                                <li><strong>2024</strong>: 72.0% overall conversion</li>
+                                <li><strong>2019</strong>: 75.9% overall conversion (best year)</li>
+                                <li><strong>Akkar 2024</strong>: 83.3% (campus record)</li>
+                            </ul>
+                        </div>
+                        <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; border: 1px solid #fde68a;">
+                            <div style="font-weight: 600; color: #92400e; margin-bottom: 0.5rem;">Year-over-Year Comparison:</div>
+                            <ul style="font-size: 0.875rem; color: #78350f; margin: 0; padding-left: 1.25rem;">
+                                <li>2025 is tracking lowest in recent history</li>
+                                <li>25.8 points below 2019 benchmark</li>
+                                <li>Consistent decline across all campuses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
     
     <script>
