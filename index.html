@@ -724,7 +724,10 @@ function startApp(DATA) {
 
     // header
     $("#subtitle").textContent = `${LBL.current} vs ${LBL.previous}, compared day by day from the day registration opened`;
-    $("#meta").innerHTML = `LIU export <b>${esc(cur.asOf || "—")}</b> <span class="dim">· IU export ${esc(cur.iuAsOf || "—")}</span><br>` +
+    $("#meta").innerHTML = `LIU export <b>${esc(cur.asOf || "—")}</b> <span class="dim">· IU ${cur.iuHeldAt ? "" : "export "}${esc(cur.iuAsOf || "—")}</span><br>` +
+      (cur.iuHeldAt ? `<span class="dim"><b>Not updated for IU</b> until its full registration export is back (held at ${esc(cur.iuHeldAt)}): ` +
+        `old students, returning students, school figures, last-semester counts and old students not yet registered. ` +
+        `IU new students, transfers, drops and new students not yet registered are current, from IU's admission reports. All LIU figures are current.</span><br>` : "") +
       `Current day: <b>Day ${CURRENT}</b> (${fDate(dateOf("current", CURRENT))}) · ${esc(LBL.current)} opened <b>${fDate(dateOf("current", 1), true)}</b> · ${esc(LBL.previous)} opened <b>${fDate(dateOf("previous", 1), true)}</b>`;
 
     const iuOR = iuCum(MAXDAY.current, "o") + iuCum(MAXDAY.current, "r");
@@ -996,6 +999,7 @@ function startApp(DATA) {
     $("#entNote").innerHTML = [
       isSchool && k === "r" ? "The school tables in the exports don't split out returning students, so this view has no school figures. Pick All, New or Old." : "",
       isSchool && k === "o" ? "School figures count returning students as old; the exports don't split them by school." : "",
+      isSchool && cur.iuHeldAt ? `IU's school figures are held at its last export (${esc(cur.iuHeldAt)}), so All Schools is ${int(cur.campus["All Campuses"].t - cur.school["All Schools"].t)} students short of All Campuses.` : "",
       `Retention is the reports' Perc: (old − returning) ÷ students registered last semester. ${LBL.previous}'s is its final value, not same-day.`,
       !isSchool && iuCampuses.length ? `For ${esc(iuCampuses.join(", "))}, retention is LIU's alone, as IU has almost no last-semester base; their LIU last-semester counts are far smaller than last year's.` : "",
       !isSchool ? "Not yet registered: students who registered last semester (old) or were admitted (new) but have no registration yet." : "",
